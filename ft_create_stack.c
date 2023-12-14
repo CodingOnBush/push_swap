@@ -2,22 +2,18 @@
 
 t_stack	*ft_create_stack(int ac, char **av)
 {
-	t_stack	*stack;
-	t_stack	*tmp;
+	t_stack	*out;
+	t_stack	*prev;
+	t_stack	*next;
 	int		i;
 
 	i = 1;
-	stack = NULL;
+	out = NULL;
 	while (i < ac)
 	{
-		tmp = (t_stack*)malloc(sizeof(t_stack));
-		tmp->size = ft_atoi(av[i]);
-		tmp->next = stack;
-		tmp->prev = NULL;
-		if (stack)
-			stack->prev = tmp;
-		stack = tmp;
+		printf("i: %d\n", i);
+		printf("av[i]: %s\n", av[i]);
 		i++;
 	}
-	return (stack);
+	return (out);
 }

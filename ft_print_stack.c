@@ -28,23 +28,25 @@ static void	ft_putnbr(int n)
 	if ((nb / 10) > 0)
 		ft_putnbr(nb / 10);
 	ft_putchar((nb % 10) + '0');
+	ft_putchar(' ');
 }
 
 void	ft_print_stack(t_stack *a, t_stack *b)
 {
 	ft_putstr("Stack A: ");
-	while (a)
+	if (a == NULL)
+		ft_putstr("NULL");
+	while (a != NULL)
 	{
 		ft_putnbr(a->size);
-		ft_putchar(' ');
 		a = a->next;
 	}
-	ft_putchar('\n');
-	ft_putstr("Stack B: ");
-	while (b)
+	ft_putstr("\nStack B: ");
+	if (b == NULL)
+		ft_putstr("NULL");
+	while (b != NULL)
 	{
 		ft_putnbr(b->size);
-		ft_putchar(' ');
 		b = b->next;
 	}
 	ft_putchar('\n');

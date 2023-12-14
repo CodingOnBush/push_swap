@@ -7,9 +7,8 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		return (0);
-	b = NULL;
-	printf("ac = %d\n", ac);
 	a = ft_create_stack(ac, av);
+	b = NULL;
 	ft_push_swap(a, b);
 	return (0);
 }

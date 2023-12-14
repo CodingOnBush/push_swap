@@ -1,5 +1,15 @@
 #include "push_swap.h"
 
+static int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
+
+static int	ft_issign(int c)
+{
+	return (c == '-' || c == '+');
+}
+
 int	ft_atoi(const char *str)
 {
 	int		i;
@@ -9,23 +19,15 @@ int	ft_atoi(const char *str)
 	i = 0;
 	sign = 1;
 	res = 0;
-	while (str[i] == '\n' || str[i] == '\t' || str[i] == '\v' || \
-			str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+	while (!ft_isdigit(str[i]) && !ft_issign(str[i]) && str[i])
 		i++;
-	if (str[i] == '-')
-		sign = -sign;
 	if (str[i] == '-' || str[i] == '+')
-		i++;
-	if (str[i] == '\0')
-		return (0);
-	while ((str[i] >= '0') && (str[i] <= '9'))
 	{
-		res = res * 10 + (str[i] - '0');
-		if (res > 2147483647 && sign == 1)
-			return (-1);
-		if (res > 2147483648 && sign == -1)
-			return (0);
+		if (str[i] == '-')
+			sign = -sign;
 		i++;
 	}
+	while (ft_isdigit(str[i]) && str[i])
+		res = res * 10 + (str[i++] - '0');
 	return (res * sign);
 }

@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:53:30 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/14 14:52:47 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/14 16:29:11 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ t_stack	*ft_create_stack(int ac, char **av);
 void	ft_push_swap(t_stack *a, t_stack *b);
 int		ft_atoi(const char *str);
 int		ft_stack_len(t_stack *s);
+t_stack	*ft_new_node(int size);
 
 #endif
