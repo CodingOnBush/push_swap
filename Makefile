@@ -1,27 +1,27 @@
-# Liste de tous les fichiers .c dans le répertoire courant
-SOURCES := $(wildcard *.c)
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+OBJDIR = objs
+SRCS = $(wildcard *.c)
+OBJS = $(patsubst %.c,$(OBJDIR)/%.o,$(SRCS))
+NAME = push_swap
 
-# Liste de tous les fichiers .o générés à partir des fichiers .c
-OBJECTS := $(SOURCES:.c=.o)
+all: $(NAME)
 
-# Nom du fichier exécutable
-EXECUTABLE := a.out
+$(NAME): $(OBJS)
+	$(CC) $^ -o $@
 
-# Règle par défaut pour la cible "all"
-all: $(EXECUTABLE)
-	@rm -f $(OBJECTS)
+$(OBJDIR)/%.o: %.c | $(OBJDIR)
+	$(CC) -c $< -o $@
 
-# Règle pour générer l'exécutable
-$(EXECUTABLE): $(OBJECTS)
-	@gcc $^ -o $@
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
 
-# Règle générique pour la compilation des fichiers .c en fichiers .o
-%.o: %.c
-	@gcc -c $< -o $@
-
-# Règle pour nettoyer les fichiers objets et l'exécutable
 clean:
-	rm -f $(OBJECTS)
+	rm -rf $(OBJDIR)
 
 fclean: clean
-	rm -f $(EXECUTABLE)
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re

@@ -10,24 +10,25 @@ static int	ft_issign(int c)
 	return (c == '-' || c == '+');
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char *str)
 {
-	int		i;
 	int		sign;
 	long	res;
 
-	i = 0;
 	sign = 1;
 	res = 0;
-	while (!ft_isdigit(str[i]) && !ft_issign(str[i]) && str[i])
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (!ft_isdigit(*str) && !ft_issign(*str) && *str)
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		if (str[i] == '-')
+		if (*str == '-')
 			sign = -sign;
-		i++;
+		str++;
 	}
-	while (ft_isdigit(str[i]) && str[i])
-		res = res * 10 + (str[i++] - '0');
+	while (ft_isdigit(*str) && *str)
+	{
+		res = res * 10 + (*str - '0');
+		str++;
+	}
 	return (res * sign);
 }

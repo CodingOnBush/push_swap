@@ -17,7 +17,7 @@ static void	ft_putstr(char const *str)
 
 static void	ft_putnbr(int n)
 {
-	long int nb;
+	long	nb;
 
 	nb = n;
 	if (nb < 0)
@@ -25,29 +25,36 @@ static void	ft_putnbr(int n)
 		ft_putchar('-');
 		nb = -nb;
 	}
-	if ((nb / 10) > 0)
+	if (nb <= 9)
+		ft_putchar(nb + '0');
+	else
+	{
 		ft_putnbr(nb / 10);
-	ft_putchar((nb % 10) + '0');
-	ft_putchar(' ');
+		ft_putchar(nb % 10 + '0');
+	}
 }
 
 void	ft_print_stack(t_stack *a, t_stack *b)
 {
-	ft_putstr("Stack A: ");
-	if (a == NULL)
-		ft_putstr("NULL");
-	while (a != NULL)
+	while (a != NULL || b != NULL)
 	{
-		ft_putnbr(a->size);
-		a = a->next;
+		if (a != NULL)
+		{
+			ft_putnbr(a->nb);
+			a = a->next;
+		}
+		else
+			ft_putchar(' ');
+		ft_putchar(' ');
+		if (b != NULL)
+		{
+			ft_putnbr(b->nb);
+			b = b->next;
+		}
+		else
+			ft_putchar(' ');
+		ft_putchar('\n');
 	}
-	ft_putstr("\nStack B: ");
-	if (b == NULL)
-		ft_putstr("NULL");
-	while (b != NULL)
-	{
-		ft_putnbr(b->size);
-		b = b->next;
-	}
-	ft_putchar('\n');
+    ft_putstr("_ _\n");
+    ft_putstr("a b\n");
 }
