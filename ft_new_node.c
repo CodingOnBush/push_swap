@@ -1,14 +1,13 @@
 #include "push_swap.h"
 
-t_stack	*ft_new_node(int size)
+t_node	*ft_new_node(int nb)
 {
-	t_stack	*new;
+	t_node	*new;
 
-	new = (t_stack *)malloc(sizeof(t_stack));
+	new = (t_node *)malloc(sizeof(t_node));
 	if (!new)
 		return (NULL);
-	new->prev = NULL;
-	new->size = size;
+	new->nb = nb;
 	new->next = NULL;
 	return (new);
 }

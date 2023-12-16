@@ -5,16 +5,6 @@ static void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-static void	ft_putstr(char const *str)
-{
-	int i;
-
-	i = 0;
-	if (str)
-		while (str[i])
-			ft_putchar(str[i++]);
-}
-
 static void	ft_putnbr(int n)
 {
 	long	nb;
@@ -34,27 +24,33 @@ static void	ft_putnbr(int n)
 	}
 }
 
-void	ft_print_stack(t_stack *a, t_stack *b)
+static void	ft_print_node(t_node **stack)
 {
-	while (a != NULL || b != NULL)
+	if (*stack != NULL)
 	{
-		if (a != NULL)
-		{
-			ft_putnbr(a->nb);
-			a = a->next;
-		}
-		else
-			ft_putchar(' ');
-		ft_putchar(' ');
-		if (b != NULL)
-		{
-			ft_putnbr(b->nb);
-			b = b->next;
-		}
-		else
-			ft_putchar(' ');
-		ft_putchar('\n');
+		ft_putnbr((*stack)->nb);
+		*stack = (*stack)->next;
 	}
-    ft_putstr("_ _\n");
-    ft_putstr("a b\n");
+	else
+		ft_putchar(' ');
+}
+
+void	ft_print_stack(t_node *a, t_node *b)
+{
+	ft_putstr("=============================\n");
+	ft_putstr("a : ");
+	while (a != NULL)
+	{
+		ft_print_node(&a);
+		ft_putchar(' ');
+	}
+	ft_putchar('\n');
+	ft_putstr("b : ");
+	while (b != NULL)
+	{
+		ft_print_node(&b);
+		ft_putchar(' ');
+	}
+	ft_putchar('\n');
+	ft_putstr("=============================\n");
 }

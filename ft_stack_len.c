@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-int	ft_stack_len(t_stack *s)
+int	ft_stack_len(t_node *s)
 {
-	t_stack	*current;
+	t_node	*current;
 	int 	out;
 	
 	out = 0;

@@ -21,9 +21,9 @@ static int	ft_isnumber(char *str)
 	return (out);
 }
 
-t_stack	*ft_create_stack(int ac, char **av)
+t_node	*ft_create_stack(int ac, char **av)
 {
-	t_stack	*out;
+	t_node	*out;
 	char	**tmp;
 	int		i;
 
@@ -36,7 +36,7 @@ t_stack	*ft_create_stack(int ac, char **av)
 			return (NULL);
 		while (*tmp)
 		{
-			if (!ft_isnumber(*tmp) || !ft_push(ft_atoi(*tmp), &out))
+			if (!ft_isnumber(*tmp) || !ft_append(ft_atoi(*tmp), &out))
 			{
 				ft_putstr("Error\n");
 				return (ft_free_split(tmp));

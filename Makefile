@@ -7,6 +7,8 @@ NAME = push_swap
 
 all: $(NAME)
 
+run: all
+	ARG="1 2 4 3 5 6"; ./$(NAME) $$ARG
 $(NAME): $(OBJS)
 	$(CC) $^ -o $@
 
