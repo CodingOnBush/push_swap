@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:53:30 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/16 09:34:20 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/16 15:06:42 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,25 @@ char	*ft_strdup(const char *str);
 char	*ft_strchr(const char *str, int c);
 char	**ft_split(const char *str, char sep);
 void	*ft_free_array(char **out, int i);
+void	*ft_free_split(char **split);
+void	*ft_print_error(void);
 
 // create, check, print and free stack
 void	ft_print_stack(t_node *a, t_node *b);
 t_node	*ft_create_stack(int ac, char **av);
 int		ft_atoi(char *str);
-int		ft_stack_len(t_node *s);
 t_node	*ft_new_node(int nb);
-void	*ft_print_error(void);
 void	ft_putstr(char *str);
-void	*ft_free_split(char **split);
 t_node	*ft_append(int nb, t_node **stack);
 int		ft_is_sorted(t_node *stack);
 int		ft_isvalid(t_node *stack);
+int		ft_stack_len(t_node *s);
+void	ft_free_stack(t_node **a);
+
+void	ft_sort_three(t_node **a);
+t_node	*ft_get_biggest(t_node *stack);
+void	ft_sort_five(t_node **a, t_node **b);
+void	ft_sort_hundred(t_node **a, t_node **b);
 
 // operations
 void	ft_push_pa(t_node **a, t_node **b);

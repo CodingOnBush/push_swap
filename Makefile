@@ -8,18 +8,15 @@ NAME = push_swap
 all: $(NAME)
 
 run: all
-	ARG="1 2 4 3 5 6"; ./$(NAME) $$ARG
+	ARG="2 1 5 4 3"; ./$(NAME) $$ARG
 $(NAME): $(OBJS)
 	$(CC) $^ -o $@
 
-$(OBJDIR)/%.o: %.c | $(OBJDIR)
+$(OBJDIR)/%.o: %.c
 	$(CC) -c $< -o $@
 
-$(OBJDIR):
-	mkdir -p $(OBJDIR)
-
 clean:
-	rm -rf $(OBJDIR)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
