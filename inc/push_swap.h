@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:53:30 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/17 15:17:33 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/17 15:40:47 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ typedef struct	s_node
 	struct s_node	*prev;
 	struct s_node	*next;
 }					t_node;
+
+void	ft_pa(t_node **a, t_node **b);
+void	ft_pb(t_node **a, t_node **b);
 
 void	*ft_append_node(t_node **stack, int nb);
 t_node	*ft_append(int nb, t_node **stack);
@@ -55,13 +58,11 @@ void	ft_rotate_rb(t_node **b);
 void	ft_rotate_rr(t_node **a, t_node **b);
 void	ft_set_cheapest(t_node *stack);
 void	ft_set_target_a(t_node *a, t_node *b);
-void	ft_sort_four(t_node **a, t_node **b);
 void	ft_sort_three(t_node **a);
 void	ft_sort_turk(t_node **a, t_node **b);
 int		ft_stack_len(t_node *s);
 void	ft_swap_sa(t_node **a);
 void	ft_swap_sb(t_node **b);
 void	ft_swap_ss(t_node **a, t_node **b);
-void	ft_push_swap(t_node **a, t_node **b);
 
 #endif
