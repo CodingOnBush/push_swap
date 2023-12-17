@@ -1,25 +1,33 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-OBJDIR = objs
-SRCS = $(wildcard *.c)
-OBJS = $(patsubst %.c,$(OBJDIR)/%.o,$(SRCS))
+BINDIR = ./bin
+INCDIR = ./inc
+SRCDIR = ./src
 NAME = push_swap
+HEADER = $(INCDIR)/push_swap.h
+SRCS = $(wildcard $(SRCDIR)/*.c)
+OBJS = $(patsubst $(SRCDIR)/%.c,$(BINDIR)/%.o,$(SRCS))
+LIBFT = ./libft/libft.a
 
 all: $(NAME)
 
 run: all
 	ARG="2 1 5 4 3"; ./$(NAME) $$ARG
-$(NAME): $(OBJS)
-	$(CC) $^ -o $@
 
-$(OBJDIR)/%.o: %.c
-	$(CC) -c $< -o $@
+$(LIBFT):
+	@make -C ./libft
+
+$(NAME): $(OBJS) $(LIBFT)
+	@$(CC) -I$(INCDIR) $(OBJS) $(LIBFT) -o $(NAME)
+
+$(BINDIR)/%.o: $(SRCDIR)/%.c $(HEADER)
+	@$(CC) -I$(INCDIR) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
