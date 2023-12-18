@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:11:21 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/18 08:58:03 by allblue          ###   ########.fr       */
+/*   Updated: 2023/12/18 13:50:39 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,16 +89,16 @@ void	prep_for_push(t_node **stack,
 		if (stack_name == 'a') //If not, and it is stack `a`, execute the following
 		{
 			if (top_node->above_median)
-				ra(stack, 0);
+				ft_ra(stack);
 			else
-				rra(stack, 0);
+				ft_rra(stack);
 		}
 		else if (stack_name == 'b') //If not, and it is stack `b`, execute the following
 		{
 			if (top_node->above_median)
-				rb(stack, 0);
+				ft_rb(stack);
 			else
-				rrb(stack, 0);
+				ft_rrb(stack);
 		}	
 	}
 }

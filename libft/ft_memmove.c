@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:38:31 by momrane           #+#    #+#             */
-/*   Updated: 2023/11/16 11:21:02 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/18 14:12:13 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 // 	char	dest[40];
 // 
 // 	printf("src : %s\n", src);
-// 	ft_memmove(src + 2, src, 0);
+// 	ft_memmove(src + 2, src;
 // 	printf("src : %s\n", src);
 // 
 // 	return (0);

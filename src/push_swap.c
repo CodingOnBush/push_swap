@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:10:56 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/18 09:10:10 by allblue          ###   ########.fr       */
+/*   Updated: 2023/12/18 14:34:58 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int ac, char **av)
 	a = ft_create_stack(av);
 	if (!a)
 		ft_print_error();
-	ft_print_stack(a, b);
+	// ft_print_stack(a, b);
 	// int i = 1;
 	// while (a)
 	// {
@@ -58,7 +58,7 @@ int	main(int ac, char **av)
 		else
 			sort_stacks(&a, &b);
 	}
-	ft_print_stack(a, b);
+	// ft_print_stack(a, b);
 	if (ft_stack_sorted(a))
 		ft_putstr_fd("OK\n", 1);
 	else

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:11:08 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/18 09:08:06 by allblue          ###   ########.fr       */
+/*   Updated: 2023/12/18 14:13:42 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	rotate_both(t_node **a,
 {
 	while (*b != cheapest_node->target_node
 		&& *a != cheapest_node) //As long as the current `b` node is not `a` cheapest node's target node, and the current top `a` node is not the top node
-		rr(a, b, 0); //Rotate both `a` and `b` nodes
+		ft_rr(a, b); //Rotate both `a` and `b` nodes
 	ft_update_indexes(*a);
 	ft_update_indexes(*b);
 }
@@ -29,7 +29,7 @@ static void	rev_rotate_both(t_node **a,
 {
 	while (*b != cheapest_node->target_node
 		&& *a != cheapest_node) //As long as the current `b` node is not `a` cheapest node's target node && and the current `a` node is not the cheapest
-		rrr(a, b, 0); //Reverse rotate both `a` and `b` nodes
+		ft_rrr(a, b); //Reverse rotate both `a` and `b` nodes
 	ft_update_indexes(*a); //Refresh current node positions
 	ft_update_indexes(*b);
 }
@@ -47,13 +47,13 @@ static void	move_a_to_b(t_node **a, t_node **b) //Define a function that prepare
 		rev_rotate_both(a, b, cheapest_node); //`rev_rotate_both` will execute if neither nodes are at the top
 	prep_for_push(a, cheapest_node, 'a'); //Ensure the cheapest nodes is at the top, ready for pushing
 	prep_for_push(b, cheapest_node->target_node, 'b'); //Ensure the target node is at the top, ready for pushing
-	pb(b, a, 0);
+	ft_pb(b, a);
 }
 
 static void	move_b_to_a(t_node **a, t_node **b) //Define a function that prepares `b`'s target `a` nodes for pushing all `b` nodes back to stack `a` 
 {
 	prep_for_push(a, (*b)->target_node, 'a'); //Ensure `b`'s target `a` node is on top of the stack
-	pa(a, b, 0); 
+	ft_pa(a, b); 
 }
 
 static void	min_on_top(t_node **a) //Define a function that moves the smallest number to the top
@@ -61,9 +61,9 @@ static void	min_on_top(t_node **a) //Define a function that moves the smallest n
 	while ((*a)->nbr != ft_find_min(*a)->nbr) //As long as the smallest number is not at the top
 	{
 		if (ft_find_min(*a)->above_median) //Rotate or reverse rotate according to the position of the node on the median
-			ra(a, 0);
+			ft_ra(a);
 		else
-			rra(a, 0);
+			ft_rra(a);
 	}
 }
 
@@ -73,9 +73,9 @@ void	sort_stacks(t_node **a, t_node **b) //Define a function that sorts stack `a
 
 	len_a = ft_stack_len(*a);
 	if (len_a-- > 3 && !ft_stack_sorted(*a)) //If stack `a` has more than three nodes and aren't sorted
-		pb(b, a, 0);
+		ft_pb(b, a);
 	if (len_a-- > 3 && !ft_stack_sorted(*a)) //If stack `a` still has more than three nodes and aren't sorted
-		pb(b, a, 0);
+		ft_pb(b, a);
 	while (len_a-- > 3 && !ft_stack_sorted(*a)) //If stack `a` still has more than three nodes and aren't sorted
 	{
 		init_nodes_a(*a, *b); //Iniate all nodes from both stacks

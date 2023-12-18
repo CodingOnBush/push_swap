@@ -14,13 +14,13 @@
 
 void	ft_sort_three(t_node **a)
 {
-	t_node	*big_node;
+	t_node	*biggest;
 
-	big_node = ft_find_max(*a);
-	if (*a == big_node)
-		ra(a, 0);
-	else if ((*a)->next == big_node)
-		rra(a, 0);
+	biggest = ft_find_max(*a);
+	if (*a == biggest)
+		ft_ra(a);
+	else if ((*a)->next == biggest)
+		ft_rra(a);
 	if ((*a)->nbr > (*a)->next->nbr)
 		ft_sa(a);
 }

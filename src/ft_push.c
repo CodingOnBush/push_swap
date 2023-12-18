@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 21:10:59 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/17 23:06:51 by allblue          ###   ########.fr       */
+/*   Created: 2023/12/18 13:53:05 by momrane           #+#    #+#             */
+/*   Updated: 2023/12/18 14:14:58 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	push(t_node **dst, t_node **src) //Define a function that pushes a top node, from one stack to another's top node
+static void	ft_push(t_node **dst, t_node **src) //Define a function that pushes a top node, from one stack to another's top node
 {
 	t_node	*push_node; //Used to store the pointer to the node to be pushed
 
@@ -36,16 +36,14 @@ static void	push(t_node **dst, t_node **src) //Define a function that pushes a t
 	}
 }
 
-void	pa(t_node **a, t_node **b, int print) //Push on top of `b`, the top `a` and print the instruction
+void	ft_pa(t_node **a, t_node **b) //Push on top of `b`, the top `a` and print the instruction
 {
-	push(a, b); 
-	if (!print) 
-		ft_putstr_fd("pa\n", 1);
+	ft_push(a, b); 
+	ft_putstr_fd("pa\n", 1);
 }
 
-void	pb(t_node **b, t_node **a, int print) //Push on top of `a`, the top `b` and print the instruction
+void	ft_pb(t_node **b, t_node **a) //Push on top of `a`, the top `b` and print the instruction
 {
-	push(b, a);
-	if (!print)
-		ft_putstr_fd("pb\n", 1);
+	ft_push(b, a);
+	ft_putstr_fd("pb\n", 1);
 }

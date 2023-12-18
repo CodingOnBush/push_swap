@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:53:30 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/18 09:08:06 by allblue          ###   ########.fr       */
+/*   Updated: 2023/12/18 13:50:13 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,14 @@ t_node			*ft_create_stack(char **av);
 void			ft_sa(t_node **a);
 void			ft_sb(t_node **b);
 void			ft_ss(t_node **a, t_node **b);
-void			ra(t_node **a, int print);
-void			rb(t_node **b, int print);
-void			rr(t_node **a, t_node **b, int print);
-void			rra(t_node **a, int print);
-void			rrb(t_node **b, int print);
-void			rrr(t_node **a, t_node **b, int print);
-void			pa(t_node **a, t_node **b, int print);
-void			pb(t_node **b, t_node **a, int print);
+void			ft_ra(t_node **a);
+void			ft_rb(t_node **b);
+void			ft_rr(t_node **a, t_node **b);
+void			ft_rra(t_node **a);
+void			ft_rrb(t_node **b);
+void			ft_rrr(t_node **a, t_node **b);
+void			ft_pa(t_node **a, t_node **b);
+void			ft_pb(t_node **b, t_node **a);
 
 //***Algorithm
 void			ft_sort_three(t_node **a);

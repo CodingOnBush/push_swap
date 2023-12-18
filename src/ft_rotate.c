@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 21:11:04 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/17 23:09:46 by allblue          ###   ########.fr       */
+/*   Created: 2023/12/18 13:45:10 by momrane           #+#    #+#             */
+/*   Updated: 2023/12/18 13:49:55 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	rotate(t_node **stack) //Define a function that rotates the stack's top node to the bottom of the stack
+static void	ft_rotate(t_node **stack)
 {
 	t_node	*last_node; //To store a pointer to the last node of a stack
 
@@ -26,24 +26,21 @@ static void	rotate(t_node **stack) //Define a function that rotates the stack's 
 	last_node->next->next = NULL; //Assign to the `next` attribute of the current last node, `NULL` effectively setting it as the current last node, and properly null terminating the stack
 }		
 
-void	ra(t_node **a, int print) //Rotate the top `a` node to the bottom of the stack, and print the instruction
+void	ft_ra(t_node **a)
 {
-	rotate(a);
-	if (!print)
-		ft_putstr_fd("ra\n", 1);
+	ft_rotate(a);
+	ft_putstr_fd("ra\n", 1);
 }
 
-void	rb(t_node **b, int print) //Rotate the top `b` node to the bottom of the stack, and print the instruction
+void	ft_rb(t_node **b)
 {
-	rotate(b);
-	if (!print)
-		ft_putstr_fd("rb\n", 1);
+	ft_rotate(b);
+	ft_putstr_fd("rb\n", 1);
 }
 
-void	rr(t_node **a, t_node **b, int print) //Stimultaneously rotate both the top `a` and `b` nodes to the bottom of the stack, and print the instruction
+void	ft_rr(t_node **a, t_node **b)
 {
-	rotate(a);
-	rotate(b);
-	if (!print)
-		ft_putstr_fd("rr\n", 1);
+	ft_rotate(a);
+	ft_rotate(b);
+	ft_putstr_fd("rr\n", 1);
 }

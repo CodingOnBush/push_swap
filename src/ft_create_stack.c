@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_create_stack.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 22:48:20 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/17 23:09:46 by allblue          ###   ########.fr       */
+/*   Updated: 2023/12/18 14:24:30 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static t_node	*ft_create_node(int n)
 	return (new_node);
 }
 
-static void	ft_add_node(t_node **head, t_node *new_node) //Define a function that adds a node to the stack
+static void	ft_add_node(t_node **head, t_node *new_node)
 {
 	t_node	*last_node;
 
