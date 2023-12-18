@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_three.c                                    :+:      :+:    :+:   */
+/*   ft_sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 14:58:23 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/17 14:58:24 by momrane          ###   ########.fr       */
+/*   Created: 2023/12/17 21:11:14 by allblue           #+#    #+#             */
+/*   Updated: 2023/12/17 23:30:30 by allblue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	ft_sort_three(t_node **a)
 {
-	t_node	*biggest;
+	t_node	*big_node;
 
-	biggest = ft_get_biggest(*a);
-	if (*a == biggest)
-		ft_rotate_ra(a);
-	else if ((*a)->next == biggest)
-		ft_reverse_rotate_rra(a);
-	if ((*a)->nb > (*a)->next->nb)
-		ft_swap_sa(a);
+	big_node = ft_find_max(*a);
+	if (*a == big_node)
+		ra(a, 0);
+	else if ((*a)->next == big_node)
+		rra(a, 0);
+	if ((*a)->nbr > (*a)->next->nbr)
+		ft_sa(a);
 }

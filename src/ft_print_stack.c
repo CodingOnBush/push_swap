@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/16 17:34:22 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/17 15:20:29 by momrane          ###   ########.fr       */
+/*   Created: 2023/12/17 21:20:56 by allblue           #+#    #+#             */
+/*   Updated: 2023/12/17 23:56:42 by allblue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	ft_print_node(t_node **stack)
 {
 	if (*stack != NULL)
 	{
-		ft_putnbr((*stack)->nb);
+		ft_putnbr((*stack)->nbr);
 		*stack = (*stack)->next;
 	}
 	else

@@ -1,4 +1,4 @@
-CC = gcc
+CC = gcc -g3
 CFLAGS = -Wall -Wextra -Werror
 BINDIR = ./bin
 INCDIR = ./inc
@@ -12,22 +12,24 @@ LIBFT = ./libft/libft.a
 all: $(NAME)
 
 run: all
-	ARG="2 1 5 4 3"; ./$(NAME) $$ARG
+	ARG="2 5 9 7 8 6"; ./$(NAME) $$ARG
 
 $(LIBFT):
-	@make -C ./libft
+	make -C ./libft
 
 $(NAME): $(OBJS) $(LIBFT)
-	@$(CC) -I$(INCDIR) $(OBJS) $(LIBFT) -o $(NAME)
+	$(CC) -I$(INCDIR) $(OBJS) $(LIBFT) -o $(NAME)
 
 $(BINDIR)/%.o: $(SRCDIR)/%.c $(HEADER)
-	@$(CC) -I$(INCDIR) -c $< -o $@
+	$(CC) -I$(INCDIR) -c $< -o $@
 
 clean:
-	@rm -f $(OBJS)
+	rm -f $(OBJS)
+	make clean -C ./libft
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
+	rm -f $(LIBFT)
 
 re: fclean all
 

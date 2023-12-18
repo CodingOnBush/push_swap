@@ -3,46 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 15:41:44 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/17 15:46:46 by momrane          ###   ########.fr       */
+/*   Created: 2023/12/17 21:11:25 by allblue           #+#    #+#             */
+/*   Updated: 2023/12/18 08:33:31 by allblue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	ft_swap(t_node **head) //Define a function that swaps the positions of the top node and second node of a stack
+static void	ft_swap(t_node **head)
 {
-	t_node	**first; //Define a pointer to the first node of the stack
-	t_node	**second; //Define a pointer to the second node of the stack
+	t_node	*first;
+	t_node	*second;
 
-	if (!*head || !(*head)->next) //Check if the stop node, or second node of a stack exists
+	if (!*head || !(*head)->next)
 		return ;
-	first = head; //Assign the pointer to point to the first node of the stack
-	second = first->next; //Assign the pointer to point to the second node of the stack
-	head = second; //Update the `head` pointer to point to the second node of the stack
-	head->prev = NULL; //Update the `prev` pointer of the `new head` to `NULL`
-	first->next = second->next; //Update the `next` pointer of the `old head` to point to the node after the `new head`
-	first->prev = second; //Update the `prev` pointer of the `old head` to point to the `new head`
-	if (second->next) //Check if there's a `next` node after the `new head` and
-		second->next->prev = first; //If so, update its `prev` pointer to point back to the `old head`
-	second->next = first; //Update the `next` pointer of the `new head` to point to the `old head`
+	first = *head;
+	second = (*head)->next;
+	*head = (*head)->next;
+	first->next = second->next;
+	first->prev = second;
+	second->prev = NULL;
+	second->next = first;
+	if (first->next)
+		first->next->prev = first;
+	// peut être que ça marche si je swap que les valeurs
+	// int temp = (*head)->nbr;
+	// (*head)->nbr = (*head)->next->nbr;
+	// (*head)->next->nbr = temp;
 }
 
-void	ft_sa(t_stack_node	**a) //Swap the first two nodes of stack `a` and print the instruction
+void	ft_sa(t_node	**a) //Swap the first two nodes of stack `a` and print the instruction
 {
 	ft_swap(a);
 	ft_putstr_fd("sa\n", 1);
 }
 
-void	ft_sb(t_stack_node **b) //Swap the first two nodes of stack `b` and print the instruction
+void	ft_sb(t_node **b) //Swap the first two nodes of stack `b` and print the instruction
 {
 	ft_swap(b);
 	ft_putstr_fd("sb\n", 1);
 }
 
-void	ft_ss(t_stack_node **a, t_stack_node **b) //Stimutaneously swap the first two nodes of the stack and print the instruction
+void	ft_ss(t_node **a, t_node **b) //Stimutaneously swap the first two nodes of the stack and print the instruction
 {
 	ft_swap(a);
 	ft_swap(b);
