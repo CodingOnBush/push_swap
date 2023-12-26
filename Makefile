@@ -1,11 +1,11 @@
-CC = gcc -g3
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 BINDIR = ./bin
 INCDIR = ./inc
 SRCDIR = ./src
 NAME = push_swap
 HEADER = $(INCDIR)/push_swap.h
-SRCS = $(wildcard $(SRCDIR)/*.c)
+SRCS = $(wildcard $(SRCDIR)/*.c)#remove wildcard
 OBJS = $(patsubst $(SRCDIR)/%.c,$(BINDIR)/%.o,$(SRCS))
 LIBFT = ./libft/libft.a
 
@@ -29,7 +29,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f $(LIBFT)
+	make fclean -C ./libft
 
 re: fclean all
 

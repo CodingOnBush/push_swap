@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:53:30 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/18 13:50:13 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/26 11:15:03 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ void			init_stack_a(t_node **a, char **argv); //Initiate stack `a` before proces
 // char			**split(char *s, char c); //To handle input of numbers as a string argument, e.g. enclosed in " "
 
 //***Nodes initiation
-void			init_nodes_a(t_node *a, t_node *b); //To prep all nodes for pushing `a` to `b`
+void			ft_init_a_nodes(t_node *a, t_node *b); //To prep all nodes for pushing `a` to `b`
 void			init_nodes_b(t_node *a, t_node *b); //To prep all nodes for pushing `b` back to `a`
-void			ft_update_indexes(t_node *stack); //Set the node's current index
-void			set_cheapest(t_node *stack); //Set the stack's cheapest node
-t_node	*get_cheapest(t_node *stack); //Get the cheapest node of a stack
+void			ft_set_indexes(t_node *stack); //Set the node's current index
+void			ft_set_cheapest(t_node *stack); //Set the stack's cheapest node
+t_node	*ft_get_cheapest_node(t_node *stack); //Get the cheapest node of a stack
 void			prep_for_push(t_node **s, t_node *n, char c); //Prep the required nodes on top for pushing
 
 //***Stack utils

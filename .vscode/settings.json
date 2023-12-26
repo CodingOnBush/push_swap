@@ -3,6 +3,8 @@
 	"files.associations": {
 		"push_swap.h": "c",
 		"unistd.h": "c",
-		"variant": "c"
+		"variant": "c",
+		"limits.h": "c",
+		"libft.h": "c"
 	}
 }

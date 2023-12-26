@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:10:56 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/18 14:34:58 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/26 11:34:14 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,24 +31,6 @@ int	main(int ac, char **av)
 	if (!a)
 		ft_print_error();
 	// ft_print_stack(a, b);
-	// int i = 1;
-	// while (a)
-	// {
-	// 	printf("[node : %d | address : %p]\n", i, a);
-	// 	printf("a->prev = %p\n", a->prev);
-	// 	printf("a->nbr = %d\n", a->nbr);
-	// 	printf("a->index = %d\n", a->index);
-	// 	printf("a->push_cost = %d\n", a->push_cost);
-	// 	printf("a->above_median = %d\n", a->above_median);
-	// 	printf("a->cheapest = %d\n", a->cheapest);
-	// 	printf("a->target_node = %p\n", a->target_node);
-	// 	printf("a->next = %p\n", a->next);
-	// 	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	// 	a = a->next;
-	// 	i++;
-	// 	if (i == 10)
-	// 		break ;
-	// }
 	if (!ft_stack_sorted(a))
 	{
 		if (ft_stack_len(a) == 2)
@@ -59,10 +41,10 @@ int	main(int ac, char **av)
 			sort_stacks(&a, &b);
 	}
 	// ft_print_stack(a, b);
-	if (ft_stack_sorted(a))
-		ft_putstr_fd("OK\n", 1);
-	else
-		ft_putstr_fd("KO\n", 1);
+	// if (ft_stack_sorted(a))
+	// 	ft_putstr_fd("OK\n", 1);
+	// else
+	// 	ft_putstr_fd("KO\n", 1);
 	ft_free_stack(&a);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:11:23 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/18 09:08:06 by allblue          ###   ########.fr       */
+/*   Updated: 2023/12/26 09:53:13 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ t_node	*ft_find_max(t_node *stack)
 	return (current_max);
 }
 
-t_node	*get_cheapest(t_node *stack)
+t_node	*ft_get_cheapest_node(t_node *stack)
 {
 	if (!stack)
 		return (NULL);

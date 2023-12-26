@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:11:21 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/18 13:50:39 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/26 10:08:52 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,7 @@ void	init_stack_a(t_node **a, char **argv) //Define a function that initiates st
 	}
 }
 
-
-
-void	prep_for_push(t_node **stack,
-						t_node *top_node,
-						char stack_name) //Define a function that moves the required node to the top of the stack
+void	prep_for_push(t_node **stack, t_node *top_node, char stack_name) //Define a function that moves the required node to the top of the stack
 {
 	while (*stack != top_node) //Check if the required node is not already the first node
 	{
@@ -99,6 +95,8 @@ void	prep_for_push(t_node **stack,
 				ft_rb(stack);
 			else
 				ft_rrb(stack);
-		}	
+		}
+		else
+			return ;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_b_to_a.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:10:54 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/18 09:05:49 by allblue          ###   ########.fr       */
+/*   Updated: 2023/12/26 11:03:11 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	set_target_b(t_node *a, t_node *b) //Define a function that sets for
 
 void	init_nodes_b(t_node *a, t_node *b) //Define a function that prepares the nodes for pushing `b` to `a`
 {
-	ft_update_indexes(a);
-	ft_update_indexes(b);
+	ft_set_indexes(a);
+	ft_set_indexes(b);
 	set_target_b(a, b);
 }
