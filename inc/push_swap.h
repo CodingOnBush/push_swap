@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:53:30 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/26 13:57:14 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/26 15:16:23 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_node //A container of data enclosed in {} braces. `s_` for stru
 }	t_node; //The "shortened name", "t_node". `t_` for type
 
 void	ft_print_error(void); //Print the error message
+int	ft_check_str(char *str); //Check if the string is a number
 
 //***Handle errors
 int				error_syntax(char *str_n); 
@@ -56,7 +57,7 @@ int			ft_stack_sorted(t_node *stack); //To check whether a stack is sorted
 t_node	*ft_find_min(t_node *stack); //Find the smallest number
 t_node	*ft_find_max(t_node *stack); //Find the biggest number
 void			ft_print_stack(t_node *a, t_node *b); //Print the stacks
-t_node			*ft_create_stack(char **av);
+t_node	*ft_create_stack(int ac, char **av); //Create a stack from the arguments
 
 //***Commands
 void			ft_sa(t_node **a);

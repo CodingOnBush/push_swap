@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 22:48:20 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/26 13:58:40 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/26 16:51:38 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,13 @@ static void	ft_add_node(t_node **head, t_node *new_node)
 		last_node->next = new_node;
 		new_node->prev = last_node;
 	}
+}
+
+static int	ft_isspace(char c)
+{
+	if (ft_strchr(" \t\n\r\f\v", c) != NULL)
+		return (1);
+	return (0);
 }
 
 static long	ft_atol(const char *s)
@@ -104,6 +111,13 @@ static int	ft_isnumber(char *s)
 	return (1);
 }
 
+static int	ft_issign(char c)
+{
+	if (c == '-' || c == '+')
+		return (1);
+	return (0);
+}
+
 static int	ft_is_input_valid(char **av)
 {
 	int		i;
@@ -133,30 +147,73 @@ static int	ft_is_input_valid(char **av)
 	return (1);
 }
 
-t_node	*ft_create_stack(char **av)
+static int	ft_check_args(int ac, char **av)
 {
-	t_node	*head;
-	t_node	*node;
-	int		i;
 	char	**tmp;
+	int		i;
+	char	*str;
+	char	c;
+
+	i = 1;
+	while (i < ac)
+	{
+		j = 0;
+		str = av[i];
+		while (*str)
+		{
+			while (ft_isspace(*str))
+				str++;
+			if (ft_issign(*str))
+				str++;
+			while (ft_isdigit(*str))
+				str++;
+			if (ft_isspace(*str))
+				str++;
+			if (!ft_issign(*str) && !ft_isdigit(*str) && !ft_isspace(*str) && *str != '\0')
+				return (0);
+			str++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	ft_check_str(char *str)
+{
+	int	i;
 
 	i = 0;
-	head = NULL;
-	while (av[i])
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i])
 	{
-		tmp = ft_split(av[i], ' ');
-		if (!tmp)
-			return (NULL);
-		if (!ft_is_input_valid(tmp))
-			ft_print_error();
-		while (*tmp)
-		{
-			node = ft_create_node(ft_atoi(*tmp));
-			if (!node)
-				return (NULL);
-			ft_add_node(&head, node);
-			tmp++;
-		}
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] != '\0')
+		return (0);
+	return (1);
+}
+
+t_node	*ft_create_stack(int ac, char **av)
+{
+	t_node	*head;
+	t_node	*new;
+	char	*tmp;
+	int		i;
+
+	if (!ft_check_args(ac, av))
+		return (NULL);
+	head = NULL;
+	i = 1;
+	while (i < ac)
+	{
+		
 		i++;
 	}
 	return (head);
