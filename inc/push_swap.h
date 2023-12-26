@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:53:30 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/26 11:15:03 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/26 13:57:14 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,19 @@
 # include "../libft/libft.h"
 # include <stdio.h> //To use printf
 
-typedef struct s_stack_node //A container of data enclosed in {} braces. `s_` for struct
+typedef struct s_node //A container of data enclosed in {} braces. `s_` for struct
 {
-	int					nbr; //The number to sort
-	int					index; //The number's position in the stack
-	int					push_cost; //How many commands in total
+	int				nbr; //The number to sort
+	int				index; //The number's position in the stack
+	int				push_cost; //How many commands in total
 	int				above_median; //Used to calculate `push_cost`
 	int				cheapest; //The node that is the cheapest to do commands
-	struct s_stack_node	*target_node; //The target node of a node in the opposite stack
-	struct s_stack_node	*next; //A pointer to the next node
-	struct s_stack_node	*prev; //A pointer to the previous node
+	struct s_node	*target_node; //The target node of a node in the opposite stack
+	struct s_node	*next; //A pointer to the next node
+	struct s_node	*prev; //A pointer to the previous node
 }	t_node; //The "shortened name", "t_node". `t_` for type
+
+void	ft_print_error(void); //Print the error message
 
 //***Handle errors
 int				error_syntax(char *str_n); 
@@ -41,7 +43,7 @@ void			init_stack_a(t_node **a, char **argv); //Initiate stack `a` before proces
 
 //***Nodes initiation
 void			ft_init_a_nodes(t_node *a, t_node *b); //To prep all nodes for pushing `a` to `b`
-void			init_nodes_b(t_node *a, t_node *b); //To prep all nodes for pushing `b` back to `a`
+void			ft_init_b_nodes(t_node *a, t_node *b); //To prep all nodes for pushing `b` back to `a`
 void			ft_set_indexes(t_node *stack); //Set the node's current index
 void			ft_set_cheapest(t_node *stack); //Set the stack's cheapest node
 t_node	*ft_get_cheapest_node(t_node *stack); //Get the cheapest node of a stack

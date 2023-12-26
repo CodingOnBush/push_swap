@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_errors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:10:47 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/18 08:47:14 by allblue          ###   ########.fr       */
+/*   Updated: 2023/12/26 12:25:42 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ void	ft_free_stack(t_node **stack)
 void	free_errors(t_node **a) //Define a function that, upon encountering a unique error, to free the stack and print an error message
 {
 	ft_free_stack(a);
-	ft_putstr_fd("Error\n", 1);
+	ft_putstr_fd("Error(free)\n", 1);
 	exit(1);
 }

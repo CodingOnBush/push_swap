@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:10:51 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/26 11:15:33 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/26 13:34:37 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_set_indexes(t_node *stack)
 	}
 }
 
-static void	ft_set_target(t_node *a, t_node *b)//Find `a` node's target in stack `b`
+static void	ft_set_a_target(t_node *a, t_node *b)//Find `a` node's target in stack `b`
 {
 	t_node	*current_b; //To store the pointer to the current node in stack `b` and iterate through each node following
 	t_node	*target_node; //To store the pointer to the target node in stack `b`
@@ -92,8 +92,7 @@ void	ft_set_cheapest(t_node *stack)
 
 	if (!stack)
 		return ;
-	cheapest_value = stack->push_cost;
-	stack = stack->next;
+	cheapest_value = LONG_MAX;
 	while (stack != NULL)
 	{
 		if (stack->push_cost < cheapest_value)
@@ -110,7 +109,7 @@ void	ft_init_a_nodes(t_node *a, t_node *b)
 {
 	ft_set_indexes(a);
 	ft_set_indexes(b);
-	ft_set_target(a, b);
+	ft_set_a_target(a, b);
 	ft_set_push_cost(a, b);
 	ft_set_cheapest(a);
 }

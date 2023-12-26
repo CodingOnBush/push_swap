@@ -6,13 +6,13 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:10:54 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/26 11:03:11 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/26 13:34:56 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	set_target_b(t_node *a, t_node *b) //Define a function that sets for the current `a` node, its target node from stack `a`
+static void	ft_set_b_target(t_node *a, t_node *b) //Define a function that sets for the current `a` node, its target node from stack `a`
 {
 	t_node	*current_a; //To store the pointer to the current `a` node
 	t_node	*target_node; //To store the pointer of the target node for `b` node
@@ -40,9 +40,9 @@ static void	set_target_b(t_node *a, t_node *b) //Define a function that sets for
 	}
 }
 
-void	init_nodes_b(t_node *a, t_node *b) //Define a function that prepares the nodes for pushing `b` to `a`
+void	ft_init_b_nodes(t_node *a, t_node *b) //Define a function that prepares the nodes for pushing `b` to `a`
 {
 	ft_set_indexes(a);
 	ft_set_indexes(b);
-	set_target_b(a, b);
+	ft_set_b_target(a, b);
 }

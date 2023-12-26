@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:11:08 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/26 11:15:03 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/26 13:34:07 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	sort_stacks(t_node **a, t_node **b) //Define a function that sorts stack `a
 	ft_sort_three(a);
 	while (*b) //Until the end of stack `b` is reached
 	{
-		init_nodes_b(*a, *b); //Initiate all nodes from both stacks
+		ft_init_b_nodes(*a, *b); //Initiate all nodes from both stacks
 		move_b_to_a(a, b); //Move all `b` nodes back to a sorted stack `a`
 	}
 	ft_set_indexes(*a); //Refresh the current position of stack `a`

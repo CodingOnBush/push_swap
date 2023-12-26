@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 22:48:20 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/18 14:24:30 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/26 13:58:40 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,10 @@ static int	ft_check_duplicate(char **av)
 		while (av[j])
 		{
 			if (ft_atol(av[i]) == ft_atol(av[j]))
+			{
+				printf("duplicate: %ld\n", ft_atol(av[i]));
 				return (0);
+			}
 			j++;
 		}
 		i++;
@@ -110,14 +113,23 @@ static int	ft_is_input_valid(char **av)
 	while (av[i])
 	{
 		if (!ft_isnumber(av[i]))
+		{
+			ft_putstr_fd("Error(is not nb)\n", 1);
 			return (0);
+		}
 		val = ft_atol(av[i]);
-		if (val > INT_MAX || val < INT_MIN)
+		if (!(val >= INT_MIN && val <= INT_MAX))
+		{
+			ft_putstr_fd("Error(overflow)\n", 1);
 			return (0);
+		}
 		i++;
 	}
 	if (!ft_check_duplicate(av))
+	{
+		ft_putstr_fd("Error(duplicate)\n", 1);
 		return (0);
+	}
 	return (1);
 }
 
@@ -126,17 +138,25 @@ t_node	*ft_create_stack(char **av)
 	t_node	*head;
 	t_node	*node;
 	int		i;
+	char	**tmp;
 
 	i = 0;
 	head = NULL;
-	if (!ft_is_input_valid(av))
-		return (NULL);
 	while (av[i])
 	{
-		node = ft_create_node(ft_atoi(av[i]));
-		if (!node)
+		tmp = ft_split(av[i], ' ');
+		if (!tmp)
 			return (NULL);
-		ft_add_node(&head, node);
+		if (!ft_is_input_valid(tmp))
+			ft_print_error();
+		while (*tmp)
+		{
+			node = ft_create_node(ft_atoi(*tmp));
+			if (!node)
+				return (NULL);
+			ft_add_node(&head, node);
+			tmp++;
+		}
 		i++;
 	}
 	return (head);
