@@ -6,32 +6,11 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:11:21 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/26 12:31:11 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/27 15:10:05 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-static long	ft_atol(const char *s) //Define a function that converts every string into a long value
-{
-	long	result;
-	int		sign;
-
-	result = 0;
-	sign = 1; 
-	while (*s == ' ' || *s == '\t' || *s == '\n' || \
-			*s == '\r' || *s == '\f' || *s == '\v')
-		s++;
-	if (*s == '-' || *s == '+')
-	{
-		if (*s == '-')
-			sign = -1;
-		s++;
-	}
-	while (ft_isdigit(*s))
-		result = result * 10 + (*s++ - '0');
-	return (result * sign);
-}
 
 static void	append_node(t_node **stack, int n) //Define a function that searches for the last node to append to the linked list
 {
@@ -58,7 +37,7 @@ static void	append_node(t_node **stack, int n) //Define a function that searches
 	}
 }
 
-void	init_stack_a(t_node **a, char **argv) //Define a function that initiates stack `a` by handling any errors and appending required nodes to complete a stack
+void	init_stack_a(t_node **a, char **argv)
 {
 	long	n;
 	int		i;

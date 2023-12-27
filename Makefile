@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: momrane <momrane@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/27 15:42:03 by momrane           #+#    #+#              #
+#    Updated: 2023/12/27 15:47:14 by momrane          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 BINDIR = ./bin
@@ -5,14 +17,18 @@ INCDIR = ./inc
 SRCDIR = ./src
 NAME = push_swap
 HEADER = $(INCDIR)/push_swap.h
-SRCS = $(wildcard $(SRCDIR)/*.c)#remove wildcard
+
+# List of directories containing source files
+SRCDIRS = $(SRCDIR) $(SRCDIR)/errors $(SRCDIR)/init $(SRCDIR)/instructions $(SRCDIR)/stacks
+
+# Find all source files recursively in the source directories
+SRCS = $(foreach dir,$(SRCDIRS),$(wildcard $(dir)/*.c))
+
+# Generate the list of object files by replacing the source file directory with the binary directory
 OBJS = $(patsubst $(SRCDIR)/%.c,$(BINDIR)/%.o,$(SRCS))
 LIBFT = ./libft/libft.a
 
 all: $(NAME)
-
-run: all
-	ARG="2 5 9 7 8 6"; ./$(NAME) $$ARG
 
 $(LIBFT):
 	make -C ./libft
@@ -21,10 +37,11 @@ $(NAME): $(OBJS) $(LIBFT)
 	$(CC) -I$(INCDIR) $(OBJS) $(LIBFT) -o $(NAME)
 
 $(BINDIR)/%.o: $(SRCDIR)/%.c $(HEADER)
+	@mkdir -p $(@D)  # Create the directory if it doesn't exist
 	$(CC) -I$(INCDIR) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	rm -rf $(BINDIR)
 	make clean -C ./libft
 
 fclean: clean
@@ -35,4 +52,48 @@ re: fclean all
 
 .PHONY: all clean fclean re
 
-#-17684 13117 13013 -10506 -18641 7015 -7613 -15601 6832 10699 14196 -15969 20231 19442 -13731 -7665 -2952 -19492 -348 10444 19482 12251 -7256 -3862 15977 -12261 -9805 3152 19760 -17478 2274 -15897 -11953 -18643 -1749 -15710 -5915 -12750 9419 418 16618 3096 16064 -18710 17852 10557 -3308 8331 -10647 -18711 -86 16030 2087 -13375 9311 7721 -11663 -8693 14189 -14443 17279 -18039 2368 -768 -3998 -8380 10269 11666 -9778 2226 -6900 9853 5147 -11725 -12072 13399 -12395 71 9534 7333 -18847 -21042 -4213 21265 13843 -16509 -20421 5544 -2931 7947 13346 1137 -8496 14390 15027 -7592 17151 4864 9425 10861 -11095 -6035 19595 -172 -3101 -8641 -3698 652 -4034 7508 -20752 -18290 -6517 -14219 -15430 16482 -19883 10909 3503 19160 8324 14707 -5637 7302 -1763 11815 3052 -14861 -45 13462 16093 2600 -4819 -12173 8326 -21245 20961 20474 8529 2975 3504 15906 10165 -1173 226 12490 15424 -11546 -21230 -7771 -319 -11159 -19429 -12807 -16696 1382 7728 -8722 5858 4208 -12302 17239 13501 13798 59 12300 -3683 7691 -377 -14700 18357 5884 -5574 -203 12027 -12948 -10688 -13567 -14751 12482 6544 -17367 -17657 13934 -468 11331 -13576 11201 -18900 -9008 8101 -13973 -18608 858 10116 -15072 16992 2242 -14828 -4258 16180 15987 -5554 -14158 18943 -21024 3394 7946 -10078 648 -784 17927 14808 -12445 19459 -5926 6236 20897 -4214 -13814 -17211 19078 11676 -4471 -11491 17212 -532 -3169 -9036 -16796 8823 -13310 -19476 -14142 6402 4789 -20361 -16058 -3247 -9316 -13634 17631 -19746 1869 10300 -4722 13005 7664 -16394 -16552 -13823 -14366 9754 13723 651 -4161 -1486 -11613 -20876 -2269 19397 3360 -7119 17781 10981 11142 -15038 9773 -13829 -2267 -951 13665 -14847 -9721 -6960 2525 5157 -18627 10498 15440 -678 -3049 -20216 -12089 8655 -11166 -21040 -14782 -16749 -18634 10756 15133 -19615 -4045 -5169 7782 -12740 8322 3535 12086 -12324 12456 4435 3923 -2587 -3786 -19257 20452 -2924 18251 20454 -2710 426 15319 6831 3389 -20611 1067 -13265 -13066 -12893 -15706 -13885 3734 -16787 12148 -2554 15816 1745 -12648 -10377 -5260 21063 -20102 15926 -16622 20908 -18633 -20780 2999 -20683 12948 -11539 -16529 16128 -3909 18030 19365 -4985 3968 -3259 -10559 19358 -16400 12800 1171 -1942 -5108 17200 6621 12973 2908 -924 -3318 -14222 18103 17967 -5643 -6265 -1029 17849 -14528 12158 7156 14505 -4189 12610 -12130 -13802 1315 -4307 -14129 21216 1777 15934 -21129 14331 9012 9556 -7991 6356 -17510 -6888 -17852 -20652 20721 20420 -2002 4531 -16398 17965 276 13215 -13707 -12809 -17930 9594 -10047 15913 -14085 -2457 7393 7522 199 -7725 -6931 -10580 -19910 5610 -14198 2315 -1305 2258 7335 11942 11127 -6224 4819 4096 -4551 2092 -20393 -15137 5922 -14504 7544 11816 5567 -2962 -12662 -11478 18531 15952 -15229 15928 16351 1369 -13060 20159 -3254 16295 -4126 -2083 21069 -20049 7996 6705 6297 20062 -10659 1701 -7601 -10769 -13205 1665 9230 17695 2843 13286 -4237 3572 -1970 -12129 5356 -2322 184 20749 19937 6655 3214 1451 11179 -8033 4511 -12446 4671 11079 11675 19448 10500 -15383 16053 7327 -1509 13908 -7546 14875
+
+# CC = gcc
+# CFLAGS = -Wall -Wextra -Werror
+# BINDIR = ./bin
+# INCDIR = ./inc
+# SRCDIR = ./src
+# NAME = push_swap
+# HEADER = $(INCDIR)/push_swap.h
+# # SRCS =	$(SRCDIR)/errors/ft_exit_error.c $(SRCDIR)/errors/ft_print_error.c \
+# # 		$(SRCDIR)/errors/handle_error.c $(SRCDIR)/init/ft_check_args.c \
+# # 		$(SRCDIR)/init/ft_init_utils.c $(SRCDIR)/init/init_a_to_b.c \
+# # 		$(SRCDIR)/init/init_b_to_a.c $(SRCDIR)/init/stack_init.c \
+# # 		$(SRCDIR)/instructions/ft_push.c $(SRCDIR)/instructions/ft_rotate.c \
+# # 		$(SRCDIR)/instructions/ft_reverse_rotate.c $(SRCDIR)/instructions/ft_swap.c \
+# # 		$(SRCDIR)/stacks/ft_create_stack.c $(SRCDIR)/stacks/ft_print_stack.c \
+# # 		$(SRCDIR)/stacks/ft_stack_utils.c $(SRCDIR)/stacks/ft_sort_stacks.c \
+# # 		$(SRCDIR)/stacks/ft_sort_three.c $(SRCDIR)/push_swap.c
+
+# SRCDIRS = $(SRCDIR)/errors $(SRCDIR)/init $(SRCDIR)/instructions $(SRCDIR)/stacks
+# SRCS = $(foreach dir,$(SRCDIRS),$(wildcard $(dir)/*.c))
+# OBJS = $(patsubst $(SRCDIR)/%.c,$(BINDIR)/%.o,$(SRCS))
+# LIBFT = ./libft/libft.a
+
+# all: $(NAME)
+
+# $(LIBFT):
+# 	make -C ./libft
+
+# $(NAME): $(OBJS) $(LIBFT)
+# 	$(CC) -I$(INCDIR) $(OBJS) $(LIBFT) -o $(NAME)
+
+# $(BINDIR)/%.o: $(SRCDIR)/%.c $(HEADER)
+# 	$(CC) -I$(INCDIR) -c $< -o $@
+
+# clean:
+# 	rm -f $(OBJS)
+# 	make clean -C ./libft
+
+# fclean: clean
+# 	rm -f $(NAME)
+# 	make fclean -C ./libft
+
+# re: fclean all
+
+# .PHONY: all clean fclean re

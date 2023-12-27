@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:53:05 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/18 14:14:58 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/27 14:52:27 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_pa(t_node **a, t_node **b) //Push on top of `b`, the top `a` and print t
 	ft_putstr_fd("pa\n", 1);
 }
 
-void	ft_pb(t_node **b, t_node **a) //Push on top of `a`, the top `b` and print the instruction
+void	ft_pb(t_node **a, t_node **b) //Push on top of `a`, the top `b` and print the instruction
 {
 	ft_push(b, a);
 	ft_putstr_fd("pb\n", 1);
