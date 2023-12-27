@@ -6,13 +6,13 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:10:51 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/27 16:10:51 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/27 16:42:43 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	ft_set_indexes(t_node *stack)
+void	ft_update_indexes(t_node *stack)
 {
 	int	median;
 	int	i;
@@ -107,8 +107,8 @@ void	ft_set_cheapest(t_node *stack)
 
 void	ft_init_a_nodes(t_node *a, t_node *b)
 {
-	ft_set_indexes(a);
-	ft_set_indexes(b);
+	ft_update_indexes(a);
+	ft_update_indexes(b);
 	ft_set_a_target(a, b);
 	ft_set_push_cost(a, b);
 	ft_set_cheapest(a);

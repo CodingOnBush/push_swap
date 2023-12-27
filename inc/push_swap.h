@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:53:30 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/27 16:21:43 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/27 16:42:39 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	ft_free_stack(t_node **stack);
 //***Nodes initiation
 void			ft_init_a_nodes(t_node *a, t_node *b); //To prep all nodes for pushing `a` to `b`
 void			ft_init_b_nodes(t_node *a, t_node *b); //To prep all nodes for pushing `b` back to `a`
-void			ft_set_indexes(t_node *stack); //Set the node's current index
+void			ft_update_indexes(t_node *stack); //Set the node's current index
 void			ft_set_cheapest(t_node *stack); //Set the stack's cheapest node
 void			prep_for_push(t_node **s, t_node *n, char c); //Prep the required nodes on top for pushing
 

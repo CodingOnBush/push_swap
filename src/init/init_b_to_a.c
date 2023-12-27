@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:10:54 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/26 13:34:56 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/27 16:42:46 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	ft_set_b_target(t_node *a, t_node *b) //Define a function that sets 
 
 void	ft_init_b_nodes(t_node *a, t_node *b) //Define a function that prepares the nodes for pushing `b` to `a`
 {
-	ft_set_indexes(a);
-	ft_set_indexes(b);
+	ft_update_indexes(a);
+	ft_update_indexes(b);
 	ft_set_b_target(a, b);
 }

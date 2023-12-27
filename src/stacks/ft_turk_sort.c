@@ -16,16 +16,16 @@ static void	rotate_both(t_node **a, t_node **b, t_node *cheapest_node) //Define 
 {
 	while (*a != cheapest_node && *b != cheapest_node->target_node) //As long as the current `b` node is not `a` cheapest node's target node, and the current top `a` node is not the top node
 		ft_rr(a, b); //Rotate both `a` and `b` nodes
-	ft_set_indexes(*a);
-	ft_set_indexes(*b);
+	ft_update_indexes(*a);
+	ft_update_indexes(*b);
 }
 
 static void	rev_rotate_both(t_node **a, t_node **b, t_node *cheapest_node) //Define a function that rotates both the bottom `a` and `b` nodes to the top of their stacks, if it's the cheapest move
 {
 	while (*a != cheapest_node && *b != cheapest_node->target_node) //As long as the current `b` node is not `a` cheapest node's target node && and the current `a` node is not the cheapest
 		ft_rrr(a, b); //Reverse rotate both `a` and `b` nodes
-	ft_set_indexes(*a); //Refresh current node positions
-	ft_set_indexes(*b);
+	ft_update_indexes(*a); //Refresh current node positions
+	ft_update_indexes(*b);
 }
 
 static void	move_a_to_b(t_node **a, t_node **b) //Define a function that prepares the cheapest nodes on top of the stacks for pushing `a` nodes to stack `b`, until there are three nodes left in `a`
@@ -61,27 +61,24 @@ static void	min_on_top(t_node **a) //Define a function that moves the smallest n
 
 void	ft_turk_sort(t_node **a, t_node **b)
 {
-	int	len_a;
+	int	len;
 
-	len_a = ft_stack_len(*a);
-	len_a--;
-	if (len_a > 3 && !ft_stack_sorted(*a))
+	len = ft_stack_len(*a);
+	if (len-- > 3 && !ft_stack_sorted(*a))
 		ft_pb(a, b);
-	len_a--;
-	if (len_a > 3 && !ft_stack_sorted(*a))
+	if (len-- > 3 && !ft_stack_sorted(*a))
 		ft_pb(a, b);
-	while (len_a > 3 && !ft_stack_sorted(*a))
+	while (len-- > 3 && !ft_stack_sorted(*a))
 	{
 		ft_init_a_nodes(*a, *b);
 		move_a_to_b(a, b); //Move the cheapest `a` nodes into a sorted stack `b`, until three nodes are left in stack `a`
-		len_a--;
 	}
 	ft_sort_three(a);
 	while (*b) //Until the end of stack `b` is reached
 	{
-		ft_init_b_nodes(*a, *b); //Initiate all nodes from both stacks
+		ft_init_b_nodes(*a, *b);
 		move_b_to_a(a, b); //Move all `b` nodes back to a sorted stack `a`
 	}
-	ft_set_indexes(*a); //Refresh the current position of stack `a`
+	ft_update_indexes(*a); //Refresh the current position of stack `a`
 	min_on_top(a); //Ensure smallest number is on top
 }
