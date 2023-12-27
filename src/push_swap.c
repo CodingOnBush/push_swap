@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:10:56 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/26 15:26:05 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/27 09:31:16 by allblue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	ft_print_error()
 
 int	main(int ac, char **av)
 {
-	printf("res: %d\n", ft_check_str("   -2147448   "));
+	if (!ft_args_valid(ac, av))
+		ft_print_error();
+	printf("OK\n");
 	// t_node	*a;
 	// t_node	*b;
 

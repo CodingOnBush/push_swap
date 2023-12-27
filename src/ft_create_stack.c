@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_create_stack.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 22:48:20 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/26 16:51:38 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/27 09:31:07 by allblue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	ft_add_node(t_node **head, t_node *new_node)
 {
 	t_node	*last_node;
 
-	if (!head || !new_node)
+	if (!new_node)
 		return ;
 	if (*head == NULL)
 	{
@@ -44,11 +44,42 @@ static void	ft_add_node(t_node **head, t_node *new_node)
 	}
 }
 
+
 static int	ft_isspace(char c)
 {
-	if (ft_strchr(" \t\n\r\f\v", c) != NULL)
+	char	*spaces;
+
+	spaces = " \t\n\r\f\v";
+	while (*spaces)
+	{
+		if (c == *spaces)
+			return (1);
+		spaces++;
+	}
+	return (0);
+}
+
+static int	ft_issign(char c)
+{
+	if (c == '-' || c == '+')
 		return (1);
 	return (0);
+}
+
+static int	ft_check_number(char *s)
+{
+	int		i;
+
+	i = 0;
+	if (ft_issign(s[i]))
+	{
+		if (!ft_isdigit(s[i + 1]))
+			return (-1);
+		i++;
+	}
+	while (s[i] && ft_isdigit(s[i]))
+		i++;
+	return (i);
 }
 
 static long	ft_atol(const char *s)
@@ -58,10 +89,9 @@ static long	ft_atol(const char *s)
 
 	result = 0;
 	sign = 1; 
-	while (*s == ' ' || *s == '\t' || *s == '\n' || \
-			*s == '\r' || *s == '\f' || *s == '\v')
+	while (ft_isspace(*s))
 		s++;
-	if (*s == '-' || *s == '+')
+	if (ft_issign(*s))
 	{
 		if (*s == '-')
 			sign = -1;
@@ -72,22 +102,56 @@ static long	ft_atol(const char *s)
 	return (result * sign);
 }
 
-static int	ft_check_duplicate(char **av)
+static int	ft_check_duplicate(int ac, char **av)
 {
+	int	k;
 	int	i;
 	int	j;
 
 	i = 0;
-	while (av[i])
+	k = 1;
+	while (k < ac)
 	{
-		j = i + 1;
-		while (av[j])
+		while (av[i])
 		{
-			if (ft_atol(av[i]) == ft_atol(av[j]))
+			j = i + 1;
+			while (av[j])
 			{
-				printf("duplicate: %ld\n", ft_atol(av[i]));
-				return (0);
+				if (ft_atol(av[i]) == ft_atol(av[j]))
+				{
+					printf("duplicate: %ld\n", ft_atol(av[i]));
+					return (0);
+				}
+				j++;
 			}
+			i++;
+		}
+		k++;
+	}
+	return (1);
+}
+
+static int	ft_check_args_number(int ac, char **av)
+{
+	int		i;
+	int		j;
+
+	i = 1;
+	while (i < ac)
+	{
+		j = 0;
+		while (av[i][j] != '\0')
+		{
+			if ((ft_isdigit(av[i][j]) || ft_issign(av[i][j])))
+			{
+				if (ft_check_number(&av[i][j]) <= 0)
+					return (0);
+				j += ft_check_number(&av[i][j]);
+			}
+			if (av[i][j] == '\0')
+				break ;
+			if (!ft_isspace(av[i][j]))
+				return (0);
 			j++;
 		}
 		i++;
@@ -95,107 +159,11 @@ static int	ft_check_duplicate(char **av)
 	return (1);
 }
 
-static int	ft_isnumber(char *s)
+int	ft_args_valid(int ac, char **av)
 {
-	int	i;
-
-	i = 0;
-	if (s[i] == '-' || s[i] == '+')
-		i++;
-	while (s[i])
-	{
-		if (!ft_isdigit(s[i]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-static int	ft_issign(char c)
-{
-	if (c == '-' || c == '+')
-		return (1);
-	return (0);
-}
-
-static int	ft_is_input_valid(char **av)
-{
-	int		i;
-	long	val;
-
-	i = 0;
-	while (av[i])
-	{
-		if (!ft_isnumber(av[i]))
-		{
-			ft_putstr_fd("Error(is not nb)\n", 1);
-			return (0);
-		}
-		val = ft_atol(av[i]);
-		if (!(val >= INT_MIN && val <= INT_MAX))
-		{
-			ft_putstr_fd("Error(overflow)\n", 1);
-			return (0);
-		}
-		i++;
-	}
-	if (!ft_check_duplicate(av))
-	{
-		ft_putstr_fd("Error(duplicate)\n", 1);
+	if (ac < 2 || !ft_check_args_number(ac, av))
 		return (0);
-	}
-	return (1);
-}
-
-static int	ft_check_args(int ac, char **av)
-{
-	char	**tmp;
-	int		i;
-	char	*str;
-	char	c;
-
-	i = 1;
-	while (i < ac)
-	{
-		j = 0;
-		str = av[i];
-		while (*str)
-		{
-			while (ft_isspace(*str))
-				str++;
-			if (ft_issign(*str))
-				str++;
-			while (ft_isdigit(*str))
-				str++;
-			if (ft_isspace(*str))
-				str++;
-			if (!ft_issign(*str) && !ft_isdigit(*str) && !ft_isspace(*str) && *str != '\0')
-				return (0);
-			str++;
-		}
-		i++;
-	}
-	return (1);
-}
-
-int	ft_check_str(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (ft_isspace(str[i]))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			return (0);
-		i++;
-	}
-	while (ft_isspace(str[i]))
-		i++;
-	if (str[i] != '\0')
+	if (!ft_check_duplicate(ac, av))
 		return (0);
 	return (1);
 }
@@ -207,8 +175,6 @@ t_node	*ft_create_stack(int ac, char **av)
 	char	*tmp;
 	int		i;
 
-	if (!ft_check_args(ac, av))
-		return (NULL);
 	head = NULL;
 	i = 1;
 	while (i < ac)

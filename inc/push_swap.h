@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:53:30 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/26 15:16:23 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/27 09:28:54 by allblue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_node //A container of data enclosed in {} braces. `s_` for stru
 }	t_node; //The "shortened name", "t_node". `t_` for type
 
 void	ft_print_error(void); //Print the error message
-int	ft_check_str(char *str); //Check if the string is a number
+int	ft_args_valid(int ac, char **av); //Check if the arguments are valid
 
 //***Handle errors
 int				error_syntax(char *str_n); 
