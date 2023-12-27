@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:10:51 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/27 16:42:43 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/27 19:54:39 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,25 +37,28 @@ static void	ft_set_a_target(t_node *a, t_node *b)//Find `a` node's target in sta
 {
 	t_node	*current_b; //To store the pointer to the current node in stack `b` and iterate through each node following
 	t_node	*target_node; //To store the pointer to the target node in stack `b`
-	long			best_match_index; //In this case, the best match indexe stores the value of the "closest smaller number" so far
+	long	best_match; //In this case, the best match indexe stores the value of the "closest smaller number" so far
 
+	ft_print_stacks(a, b);
 	while (a) //As long as we have nodes in stack `a`
 	{
-		best_match_index = LONG_MIN; //Assign the smallest `long` as the closest smaller number so far
+		printf("a->nbr: %d | ", a->nbr);
+		best_match = LONG_MIN; //Assign the smallest `long` as the closest smaller number so far
 		current_b = b; //Assign to `current_b` the current `b` node
 		while (current_b) //Iteratively search through all the nodes in stack `b` until the end of the stack is reached
 		{
-			if (current_b->nbr < a->nbr && current_b->nbr > best_match_index) //Check if `b` node is smaller than `a` node && bigger than the closest smaller number so far
+			if (current_b->nbr > best_match && a->nbr > current_b->nbr) //Check if `b` node is smaller than `a` node && bigger than the closest smaller number so far
 			{
-				best_match_index = current_b->nbr; //If so, update the value of the closest smaller number so far
+				best_match = current_b->nbr; //If so, update the value of the closest smaller number so far
 				target_node = current_b; //Assign the current `b` node as the `target_node`
 			}
 			current_b = current_b->next; //Move to the next `b` node for comparison, until a "closer smaller number" is found
 		}
-		if (best_match_index == LONG_MIN) //Check if the LONG_MIN hasn't changed, it means we haven't found anything smaller
+		if (best_match == LONG_MIN) //Check if the LONG_MIN hasn't changed, it means we haven't found anything smaller
 			a->target_node = ft_find_max(b); //If so, find the biggest `nbr` and set this as the target node
 		else
 			a->target_node = target_node; //If no "closer smaller number" is found, and the best match has changed
+		printf("a->target_node: %d\n", a->target_node->nbr);
 		a = a->next; //Move to the next `a` node to find it's target `b` node
 	}
 }

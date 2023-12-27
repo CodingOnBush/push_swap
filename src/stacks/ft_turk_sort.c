@@ -66,8 +66,10 @@ void	ft_turk_sort(t_node **a, t_node **b)
 	len = ft_stack_len(*a);
 	if (len-- > 3 && !ft_stack_sorted(*a))
 		ft_pb(a, b);
+	ft_print_stacks(*a, *b);
 	if (len-- > 3 && !ft_stack_sorted(*a))
 		ft_pb(a, b);
+	ft_print_stacks(*a, *b);
 	while (len-- > 3 && !ft_stack_sorted(*a))
 	{
 		ft_init_a_nodes(*a, *b);

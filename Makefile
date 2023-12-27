@@ -6,11 +6,11 @@
 #    By: momrane <momrane@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/27 15:42:03 by momrane           #+#    #+#              #
-#    Updated: 2023/12/27 16:38:22 by momrane          ###   ########.fr        #
+#    Updated: 2023/12/27 18:36:57 by momrane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC = gcc -g3
 CFLAGS = -Wall -Wextra -Werror
 BINDIR = ./bin
 INCDIR = ./inc

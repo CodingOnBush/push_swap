@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_stack.c                                   :+:      :+:    :+:   */
+/*   ft_print_stacks.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -24,7 +24,7 @@ static void	ft_print_node(t_node **stack)
 		ft_putchar_fd(' ', 1);
 }
 
-void	ft_print_stack(t_node *a, t_node *b)
+void	ft_print_stacks(t_node *a, t_node *b)
 {
 	ft_putstr_fd("=============================\n", 1);
 	ft_putstr_fd("a : ", 1);
