@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_stacks.c                                      :+:      :+:    :+:   */
+/*   ft_turk_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -39,7 +39,7 @@ static void	move_a_to_b(t_node **a, t_node **b) //Define a function that prepare
 		rev_rotate_both(a, b, cheapest_node); //`rev_rotate_both` will execute if neither nodes are at the top
 	prep_for_push(a, cheapest_node, 'a'); //Ensure the cheapest nodes is at the top, ready for pushing
 	prep_for_push(b, cheapest_node->target_node, 'b'); //Ensure the target node is at the top, ready for pushing
-	ft_pb(b, a);
+	ft_pb(a, b);
 }
 
 static void	move_b_to_a(t_node **a, t_node **b) //Define a function that prepares `b`'s target `a` nodes for pushing all `b` nodes back to stack `a` 
@@ -59,19 +59,22 @@ static void	min_on_top(t_node **a) //Define a function that moves the smallest n
 	}
 }
 
-void	sort_stacks(t_node **a, t_node **b) //Define a function that sorts stack `a` if it has more than 3 nodes
+void	ft_turk_sort(t_node **a, t_node **b)
 {
-	int	len_a; //To store the length of stack `a`
+	int	len_a;
 
 	len_a = ft_stack_len(*a);
-	if (len_a-- > 3 && !ft_stack_sorted(*a)) //If stack `a` has more than three nodes and aren't sorted
-		ft_pb(b, a);
-	if (len_a-- > 3 && !ft_stack_sorted(*a)) //If stack `a` still has more than three nodes and aren't sorted
-		ft_pb(b, a);
-	while (len_a-- > 3 && !ft_stack_sorted(*a)) //If stack `a` still has more than three nodes and aren't sorted
+	len_a--;
+	if (len_a > 3 && !ft_stack_sorted(*a))
+		ft_pb(a, b);
+	len_a--;
+	if (len_a > 3 && !ft_stack_sorted(*a))
+		ft_pb(a, b);
+	while (len_a > 3 && !ft_stack_sorted(*a))
 	{
-		ft_init_a_nodes(*a, *b); //Iniate all nodes from both stacks
+		ft_init_a_nodes(*a, *b);
 		move_a_to_b(a, b); //Move the cheapest `a` nodes into a sorted stack `b`, until three nodes are left in stack `a`
+		len_a--;
 	}
 	ft_sort_three(a);
 	while (*b) //Until the end of stack `b` is reached

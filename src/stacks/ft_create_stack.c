@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 22:48:20 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/27 15:45:08 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/27 15:54:55 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,25 @@ static void	ft_add_node(t_node **head, t_node *new_node)
 	}
 }
 
+static void	ft_check_duplicates(t_node *head)
+{
+	t_node	*current;
+	t_node	*temp;
+
+	current = head;
+	while (current->next)
+	{
+		temp = current->next;
+		while (temp)
+		{
+			if (current->nbr == temp->nbr)
+				ft_duplicate_error(head);
+			temp = temp->next;
+		}
+		current = current->next;
+	}
+}
+
 t_node	*ft_create_stack(int ac, char **av)
 {
 	t_node	*head;
@@ -69,5 +88,6 @@ t_node	*ft_create_stack(int ac, char **av)
 		}
 		i++;
 	}
+	ft_check_duplicates(head);
 	return (head);
 }

@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 13:46:42 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/27 15:44:49 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/27 15:55:38 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,11 @@ static int	ft_check_numbers(int ac, char **av)
 	return (1);
 }
 
-static int	ft_check_duplicates(int ac, char **av)
-{
-	return (1);
-}
-
-
 int	ft_check_args(int ac, char **av)
 {
 	if (ac < 2)
 		return (0);
 	if (!ft_check_numbers(ac, av))
-		return (0);
-	if (!ft_check_duplicates(ac, av))
 		return (0);
 	return (1);
 }

@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit_error.c                                    :+:      :+:    :+:   */
+/*   ft_duplicate_error.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/27 13:56:27 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/27 15:07:46 by momrane          ###   ########.fr       */
+/*   Created: 2023/12/27 15:51:55 by momrane           #+#    #+#             */
+/*   Updated: 2023/12/27 15:52:10 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-void	ft_exit_error()
+void	ft_duplicate_error(t_node *head)
 {
-	ft_print_error();
+	ft_free_stack(&head);
+	ft_putstr_fd("Error\n", 1);
 	exit(1);
 }

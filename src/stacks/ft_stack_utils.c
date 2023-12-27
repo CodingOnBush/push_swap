@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 14:00:55 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/27 14:01:14 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/27 16:18:42 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,21 @@ t_node	*ft_get_cheapest_node(t_node *stack)
 		stack = stack->next;
 	}
 	return (NULL);
+}
+
+void	ft_free_stack(t_node **stack)
+{
+	t_node	*tmp;
+	t_node	*current;
+
+	if (!stack)
+		return ;
+	current = *stack;
+	while (current)
+	{
+		tmp = current->next;
+		free(current);
+		current = tmp;
+	}
+	*stack = NULL;
 }

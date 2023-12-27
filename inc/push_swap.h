@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:53:30 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/27 15:03:47 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/27 16:21:43 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ typedef struct s_node
 
 //
 // ├── errors
-void	ft_exit_error();
-void	ft_print_error();
+void	ft_duplicate_error(t_node *head);
+int		ft_print_error();
 
 //
 // ├── init
@@ -68,7 +68,7 @@ t_node	*ft_create_stack(int ac, char **av);
 // │   ├── ft_print_stack.c
 void	ft_print_stack(t_node *a, t_node *b);
 // │   ├── ft_sort_stacks.c
-void	sort_stacks(t_node **a, t_node **b);
+void	ft_turk_sort(t_node **a, t_node **b);
 // │   ├── ft_sort_three.c
 void	ft_sort_three(t_node **a);
 // │   ├── ft_stack_utils.c
@@ -78,16 +78,7 @@ int		ft_stack_sorted(t_node *stack);
 t_node	*ft_find_min(t_node *stack);
 t_node	*ft_find_max(t_node *stack);
 t_node	*ft_get_cheapest_node(t_node *stack);
-
-//***Handle errors
-int				error_syntax(char *str_n); 
-int				error_duplicate(t_node *a, int n);
-void			ft_free_stack(t_node **stack);
-void			free_errors(t_node **a);
-
-//***Stack initiation
-void			init_stack_a(t_node **a, char **argv); //Initiate stack `a` before processing
-// char			**split(char *s, char c); //To handle input of numbers as a string argument, e.g. enclosed in " "
+void	ft_free_stack(t_node **stack);
 
 //***Nodes initiation
 void			ft_init_a_nodes(t_node *a, t_node *b); //To prep all nodes for pushing `a` to `b`

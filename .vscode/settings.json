@@ -5,6 +5,7 @@
 		"unistd.h": "c",
 		"variant": "c",
 		"limits.h": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"cstdlib": "c"
 	}
 }

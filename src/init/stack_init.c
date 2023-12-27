@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:11:21 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/27 15:10:05 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/27 16:20:56 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,34 +37,6 @@ static void	append_node(t_node **stack, int n) //Define a function that searches
 	}
 }
 
-void	init_stack_a(t_node **a, char **argv)
-{
-	long	n;
-	int		i;
-
-	i = 0;
-	while (argv[i])
-	{
-		if (error_syntax(argv[i]))
-		{
-			ft_putstr_fd("Error(syntax)\n", 1);
-			free_errors(a);
-		}
-		n = ft_atol(argv[i]);
-		if (n > INT_MAX || n < INT_MIN) //Check for overflow
-		{
-			ft_putstr_fd("Error(overflow)\n", 1);
-			free_errors(a);
-		}
-		if (error_duplicate(*a, (int)n))
-		{
-			ft_putstr_fd("Error(duplicate)\n", 1);
-			free_errors(a);
-		}
-		append_node(a, (int)n); //If no errors, append the node to the linked list by, taking a pointer to stack `a`, create a new node and assign `n` to that new node
-		i++;
-	}
-}
 
 void	prep_for_push(t_node **stack, t_node *top_node, char stack_name) //Define a function that moves the required node to the top of the stack
 {

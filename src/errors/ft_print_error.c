@@ -6,13 +6,14 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 13:55:50 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/27 13:56:14 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/27 15:59:19 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-void	ft_print_error()
+int	ft_print_error()
 {
 	ft_putstr_fd("Error\n", 1);
+	return (0);
 }
