@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 14:00:55 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/28 12:07:15 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/28 13:24:15 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,32 +51,32 @@ int	ft_stack_sorted(t_node *stack)
 
 t_node	*ft_find_min(t_node *stack)
 {
-	t_node	*current_min;
+	t_node	*min_node;
 
 	if (!stack)
 		return (NULL);
-	current_min = stack;
+	min_node = stack;
 	while (stack)
 	{
-		if (stack->nbr < current_min->nbr)
-			current_min = stack;
+		if (stack->nbr < min_node->nbr)
+			min_node = stack;
 		stack = stack->next;
 	}
-	return (current_min); 
+	return (min_node); 
 }
 
 t_node	*ft_find_max(t_node *stack)
 {
-	t_node	*current_max;
+	t_node	*max_node;
 
 	if (!stack)
 		return (NULL);
-	current_max = stack;
+	max_node = stack;
 	while (stack)
 	{
-		if (stack->nbr > current_max->nbr)
-			current_max = stack;
+		if (stack->nbr > max_node->nbr)
+			max_node = stack;
 		stack = stack->next;
 	}
-	return (current_max);
+	return (max_node);
 }

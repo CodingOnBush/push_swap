@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 13:46:42 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/28 12:06:43 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/28 15:31:02 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_check_args(int ac, char **av)
 			{
 				if (!ft_isvalid_nb(&av[ac][i]))
 					return (0);
-				i += ft_isnumber(&av[ac][i]);	
+				i += ft_isnumber(&av[ac][i]);
 			}
 			else
 				i++;

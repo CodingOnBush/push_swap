@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 22:48:20 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/28 12:07:05 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/28 14:07:57 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	ft_add_node(t_node **head, t_node *new_node)
 	t_node	*last_node;
 
 	if (!new_node)
-		ft_new_node_error(*out);
+		ft_new_node_error(*head);
 	if (*head == NULL)
 	{
 		*head = new_node;

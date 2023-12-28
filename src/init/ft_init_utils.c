@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 15:02:17 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/28 11:54:40 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/28 15:36:38 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ int	ft_isnumber(char *s)
 			return (-1);
 		i++;
 	}
-	while (s[i] && ft_isdigit(s[i]))
+	while (ft_isdigit(s[i]) && s[i] != '\0')
 		i++;
+	if (!ft_isspace(s[i]) && s[i] != '\0')
+		return (-1);
 	return (i);
 }
 
