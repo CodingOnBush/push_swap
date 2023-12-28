@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:45:10 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/18 13:49:55 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/28 09:40:18 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ void	ft_ra(t_node **a)
 {
 	ft_rotate(a);
 	ft_putstr_fd("ra\n", 1);
+	ft_print_stacks(*a, NULL);
 }
 
 void	ft_rb(t_node **b)
 {
 	ft_rotate(b);
 	ft_putstr_fd("rb\n", 1);
+	ft_print_stacks(NULL, *b);
 }
 
 void	ft_rr(t_node **a, t_node **b)
@@ -43,4 +45,5 @@ void	ft_rr(t_node **a, t_node **b)
 	ft_rotate(a);
 	ft_rotate(b);
 	ft_putstr_fd("rr\n", 1);
+	ft_print_stacks(*a, *b);
 }

@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:53:30 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/27 18:30:37 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/28 12:06:55 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,21 @@ typedef struct s_node
 
 //
 // ├── errors
+void	ft_new_node_error(t_node *head);
 void	ft_duplicate_error(t_node *head);
 int		ft_print_error();
 
 //
 // ├── init
 // │   ├── ft_check_args.c
+void	ft_check_duplicates(t_node *head);
 int		ft_check_args(int ac, char **av);
 // │   ├── ft_init_utils.c
-long	ft_atol(char *s);
 int		ft_isnumber(char *s);
+long	ft_atol(char *s);
 int		ft_issign(char c);
 int		ft_isspace(char c);
+void	ft_update_indexes(t_node *stack);
 
 //
 // ├── instructions
@@ -69,8 +72,8 @@ t_node	*ft_create_stack(int ac, char **av);
 void	ft_print_stacks(t_node *a, t_node *b);
 // │   ├── ft_sort_stacks.c
 void	ft_turk_sort(t_node **a, t_node **b);
-// │   ├── ft_sort_three.c
-void	ft_sort_three(t_node **a);
+// │   ├── ft_little_sort.c
+void	ft_little_sort(t_node **a);
 // │   ├── ft_stack_utils.c
 int		ft_stack_len(t_node *stack);
 t_node	*ft_find_last(t_node *stack);
@@ -84,8 +87,7 @@ void	ft_free_stack(t_node **stack);
 void			ft_init_a_nodes(t_node *a, t_node *b); //To prep all nodes for pushing `a` to `b`
 void			ft_init_b_nodes(t_node *a, t_node *b); //To prep all nodes for pushing `b` back to `a`
 void			ft_update_indexes(t_node *stack); //Set the node's current index
-void			ft_set_cheapest(t_node *stack); //Set the stack's cheapest node
-void			prep_for_push(t_node **s, t_node *n, char c); //Prep the required nodes on top for pushing
+void			ft_push_node_on_top(t_node **s, t_node *n, char c); //Prep the required nodes on top for pushing
 
 //***Algorithm
 

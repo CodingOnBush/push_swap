@@ -6,57 +6,65 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 13:46:42 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/27 18:33:20 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/28 12:06:43 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-static int	ft_valid_number(char *s)
+static int	ft_isvalid_nb(char *s)
 {
 	long	nb;
 
-	if (ft_issign(*s) || ft_isdigit(*s))
-	{
-		if (ft_isnumber(s) <= 0)
-			return (0);
-		nb = ft_atol(s);
-		if (nb < INT_MIN || nb > INT_MAX)
-			return (0);
-		return (1);
-	}
-	return (0);
+	if (!ft_issign(*s) && !ft_isdigit(*s))
+		return (0);
+	if (ft_isnumber(s) <= 0)
+		return (0);
+	nb = ft_atol(s);
+	if (nb < INT_MIN || nb > INT_MAX)
+		return (0);
+	return (1);
 }
 
-static int	ft_check_numbers(int ac, char **av)
+void	ft_check_duplicates(t_node *head)
 {
-	int		i;
-	int		j;
+	t_node	*current;
+	t_node	*temp;
 
-	i = 1;
-	while (i < ac)
+	current = head;
+	while (current->next != NULL)
 	{
-		j = 0;
-		while (av[i][j] != '\0')
+		temp = current->next;
+		while (temp)
 		{
-			while (ft_isspace(av[i][j]))
-				j++;
-			if (av[i][j] == '\0')
-				break ;
-			if (!ft_valid_number(&av[i][j]))
-				return (0);
-			j += ft_isnumber(&av[i][j]);
+			if (current->nbr == temp->nbr)
+				ft_duplicate_error(head);
+			temp = temp->next;
 		}
-		i++;
+		current = current->next;
 	}
-	return (1);
 }
 
 int	ft_check_args(int ac, char **av)
 {
+	int		i;
+
 	if (ac < 2)
 		return (0);
-	if (!ft_check_numbers(ac, av))
-		return (0);
+	while (ac-- > 1)
+	{
+		i = 0;
+		while (av[ac][i] != '\0')
+		{
+			if (!ft_isspace(av[ac][i]))
+			{
+				if (!ft_isvalid_nb(&av[ac][i]))
+					return (0);
+				i += ft_isnumber(&av[ac][i]);	
+			}
+			else
+				i++;
+		}
+	}
 	return (1);
 }

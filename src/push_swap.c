@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:10:56 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/27 20:31:34 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/28 11:27:10 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int ac, char **av)
 		if (ft_stack_len(a) == 2)
 			ft_sa(&a);
 		else if (ft_stack_len(a) == 3)
-			ft_sort_three(&a);
+			ft_little_sort(&a);
 		else
 			ft_turk_sort(&a, &b);
 	}

@@ -6,11 +6,27 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 15:02:17 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/27 15:02:58 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/28 11:54:40 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
+
+int	ft_isnumber(char *s)
+{
+	int		i;
+
+	i = 0;
+	if (ft_issign(s[i]))
+	{
+		if (!ft_isdigit(s[i + 1]))
+			return (-1);
+		i++;
+	}
+	while (s[i] && ft_isdigit(s[i]))
+		i++;
+	return (i);
+}
 
 int	ft_isspace(char c)
 {
@@ -53,18 +69,23 @@ long	ft_atol(char *s)
 	return (result * sign);
 }
 
-int	ft_isnumber(char *s)
+void	ft_update_indexes(t_node *stack)
 {
-	int		i;
+	int	median;
+	int	i;
 
 	i = 0;
-	if (ft_issign(s[i]))
+	if (!stack)
+		return ;
+	median = ft_stack_len(stack) / 2;
+	while (stack)
 	{
-		if (!ft_isdigit(s[i + 1]))
-			return (-1);
+		stack->index = i;
+		if (i <= median)
+			stack->above_median = 1;
+		else
+			stack->above_median = 0;
 		i++;
+		stack = stack->next;
 	}
-	while (s[i] && ft_isdigit(s[i]))
-		i++;
-	return (i);
 }

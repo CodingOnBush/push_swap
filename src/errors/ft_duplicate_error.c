@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 15:51:55 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/27 15:52:10 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/28 12:06:00 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 void	ft_duplicate_error(t_node *head)
 {
 	ft_free_stack(&head);
-	ft_putstr_fd("Error\n", 1);
+	ft_print_error();
 	exit(1);
 }

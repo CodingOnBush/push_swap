@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:11:02 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/18 14:11:45 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/28 09:40:01 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ void	ft_rra(t_node **a) //Rotate the bottom of `a` to the top of the stack and p
 {
 	ft_rev_rotate(a);
 	ft_putstr_fd("rra\n", 1);
+	ft_print_stacks(*a, NULL);
 }
 
 void	ft_rrb(t_node **b) //Rotate the bottom of `b` to the top of the stack and print the instruction
 {
 	ft_rev_rotate(b);
 	ft_putstr_fd("rrb\n", 1);
+	ft_print_stacks(NULL, *b);
 }
 
 void	ft_rrr(t_node **a, t_node **b) //Stimultaneously rotate both stacks' bottom nodes to the top of their stacks, halving the cost of instructions
@@ -43,4 +45,5 @@ void	ft_rrr(t_node **a, t_node **b) //Stimultaneously rotate both stacks' bottom
 	ft_rev_rotate(a);
 	ft_rev_rotate(b);
 	ft_putstr_fd("rrr\n", 1);
+	ft_print_stacks(*a, *b);
 }
