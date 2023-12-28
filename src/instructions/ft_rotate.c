@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:45:10 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/28 14:09:08 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/28 23:43:02 by allblue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	ft_rotate(t_node **stack)
+void	ft_rotate(t_stack_node **stack)
 {
-	t_node	*last_node; //To store a pointer to the last node of a stack
+	t_stack_node	*last_node; //To store a pointer to the last node of a stack
 
 	if (!*stack || !(*stack)->next) //Check if the stack is empty, or if there's one node
 		return ;
@@ -26,19 +26,19 @@ static void	ft_rotate(t_node **stack)
 	last_node->next->next = NULL; //Assign to the `next` attribute of the current last node, `NULL` effectively setting it as the current last node, and properly null terminating the stack
 }		
 
-void	ft_ra(t_node **a)
+void	ft_ra(t_stack_node **a)
 {
 	ft_rotate(a);
 	ft_putstr_fd("ra\n", 1);
 }
 
-void	ft_rb(t_node **b)
+void	ft_rb(t_stack_node **b)
 {
 	ft_rotate(b);
 	ft_putstr_fd("rb\n", 1);
 }
 
-void	ft_rr(t_node **a, t_node **b)
+void	ft_rr(t_stack_node **a, t_stack_node **b)
 {
 	ft_rotate(a);
 	ft_rotate(b);

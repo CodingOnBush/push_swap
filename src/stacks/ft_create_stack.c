@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_create_stack.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 22:48:20 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/28 14:07:57 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/28 23:43:31 by allblue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static t_node	*ft_new_node(int n)
+static t_stack_node	*ft_new_node(int n)
 {
-	t_node	*new_node;
+	t_stack_node	*new_node;
 
-	new_node = malloc(sizeof(t_node));
+	new_node = malloc(sizeof(t_stack_node));
 	if (!new_node)
 		return (NULL);
 	new_node->nbr = n;
@@ -25,9 +25,9 @@ static t_node	*ft_new_node(int n)
 	return (new_node);
 }
 
-static void	ft_add_node(t_node **head, t_node *new_node)
+static void	ft_add_node(t_stack_node **head, t_stack_node *new_node)
 {
-	t_node	*last_node;
+	t_stack_node	*last_node;
 
 	if (!new_node)
 		ft_new_node_error(*head);
@@ -44,9 +44,9 @@ static void	ft_add_node(t_node **head, t_node *new_node)
 	}
 }
 
-t_node	*ft_create_stack(int ac, char **av)
+t_stack_node	*ft_create_stack(int ac, char **av)
 {
-	t_node	*out;
+	t_stack_node	*out;
 	long	nb;
 	int		i;
 	int		j;

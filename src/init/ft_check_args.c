@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 13:46:42 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/28 15:31:02 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/28 23:39:52 by allblue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ static int	ft_isvalid_nb(char *s)
 	return (1);
 }
 
-void	ft_check_duplicates(t_node *head)
+void	ft_check_duplicates(t_stack_node *head)
 {
-	t_node	*current;
-	t_node	*temp;
+	t_stack_node	*current;
+	t_stack_node	*temp;
 
 	current = head;
 	while (current->next != NULL)

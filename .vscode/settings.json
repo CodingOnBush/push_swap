@@ -6,6 +6,7 @@
 		"variant": "c",
 		"limits.h": "c",
 		"libft.h": "c",
-		"cstdlib": "c"
+		"cstdlib": "c",
+		"get_next_line.h": "c"
 	}
 }

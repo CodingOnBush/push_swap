@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-static void	rotate_both(t_node **a, t_node **b, t_node *cheapest_node)
+static void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
 {
 	while (*a != cheapest_node && *b != cheapest_node->target_node)
 		ft_rr(a, b);
@@ -20,7 +20,7 @@ static void	rotate_both(t_node **a, t_node **b, t_node *cheapest_node)
 	ft_update_indexes(*b);
 }
 
-static void	rev_rotate_both(t_node **a, t_node **b, t_node *cheapest_node)
+static void	rev_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
 {
 	while (*a != cheapest_node && *b != cheapest_node->target_node)
 		ft_rrr(a, b);
@@ -28,7 +28,7 @@ static void	rev_rotate_both(t_node **a, t_node **b, t_node *cheapest_node)
 	ft_update_indexes(*b);
 }
 
-void	ft_prep_a_for_push(t_node **a, t_node *top_node)
+void	ft_prep_a_for_push(t_stack_node **a, t_stack_node *top_node)
 {
 	while (*a != top_node)
 	{
@@ -39,7 +39,7 @@ void	ft_prep_a_for_push(t_node **a, t_node *top_node)
 	}
 }
 
-void	ft_prep_b_for_push(t_node **b, t_node *top_node)
+void	ft_prep_b_for_push(t_stack_node **b, t_stack_node *top_node)
 {
 	while (*b != top_node)
 	{
@@ -50,10 +50,10 @@ void	ft_prep_b_for_push(t_node **b, t_node *top_node)
 	}
 }
 
-static void	ft_move_a_to_b(t_node **a, t_node **b)
+static void	ft_move_a_to_b(t_stack_node **a, t_stack_node **b)
 {
-	t_node	*cheapest_node;
-	t_node	*curr_target;
+	t_stack_node	*cheapest_node;
+	t_stack_node	*curr_target;
 
 	cheapest_node = ft_get_cheapest_node(*a);
 	curr_target = cheapest_node->target_node;
@@ -69,14 +69,14 @@ static void	ft_move_a_to_b(t_node **a, t_node **b)
 }
 
 
-static void	ft_move_b_to_a(t_node **a, t_node **b)
+static void	ft_move_b_to_a(t_stack_node **a, t_stack_node **b)
 {
 	// ft_push_node_on_top(a, (*b)->target_node, 'a');
 	ft_prep_a_for_push(a, (*b)->target_node);
 	ft_pa(a, b); 
 }
 
-static void	ft_min_on_top(t_node **a) //Define a function that moves the smallest number to the top
+static void	ft_min_on_top(t_stack_node **a) //Define a function that moves the smallest number to the top
 {
 	while ((*a)->nbr != ft_find_min(*a)->nbr) //As long as the smallest number is not at the top
 	{
@@ -87,7 +87,7 @@ static void	ft_min_on_top(t_node **a) //Define a function that moves the smalles
 	}
 }
 
-void	ft_turk_sort(t_node **a, t_node **b)
+void	ft_turk_sort(t_stack_node **a, t_stack_node **b)
 {
 	int	len;
 

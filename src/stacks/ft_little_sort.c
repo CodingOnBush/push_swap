@@ -12,9 +12,9 @@
 
 #include "../inc/push_swap.h"
 
-void	ft_little_sort(t_node **a)
+void	ft_little_sort(t_stack_node **a)
 {
-	t_node	*biggest;
+	t_stack_node	*biggest;
 
 	if (ft_stack_len(*a) == 2)
 		ft_sa(a);

@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:53:05 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/28 14:08:42 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/28 23:42:27 by allblue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	ft_push(t_node **dst, t_node **src) //Define a function that pushes a top node, from one stack to another's top node
+void	ft_push(t_stack_node **dst, t_stack_node **src)
 {
-	t_node	*push_node; //Used to store the pointer to the node to be pushed
+	t_stack_node	*push_node; //Used to store the pointer to the node to be pushed
 
 	if (!*src) //The top node of a stack to be pushed
 		return ;
-	push_node = *src; //The top node to push is assigned to the `t_node` variable
+	push_node = *src; //The top node to push is assigned to the `t_stack_node` variable
 	*src = (*src)->next; //Move the pointer of the stack to the next node, which will become the next `top node` after the node before is "popped off"
 	if (*src) //Check if the current node exists
 		(*src)->prev = NULL; //Set the current node as the head of the stack
@@ -36,13 +36,13 @@ static void	ft_push(t_node **dst, t_node **src) //Define a function that pushes 
 	}
 }
 
-void	ft_pa(t_node **a, t_node **b) //Push on top of `b`, the top `a` and print the instruction
+void	ft_pa(t_stack_node **a, t_stack_node **b)
 {
 	ft_push(a, b); 
 	ft_putstr_fd("pa\n", 1);
 }
 
-void	ft_pb(t_node **a, t_node **b) //Push on top of `a`, the top `b` and print the instruction
+void	ft_pb(t_stack_node **a, t_stack_node **b)
 {
 	ft_push(b, a);
 	ft_putstr_fd("pb\n", 1);

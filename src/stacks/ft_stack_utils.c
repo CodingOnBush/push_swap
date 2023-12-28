@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 14:00:55 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/28 13:24:15 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/28 23:43:54 by allblue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	ft_stack_len(t_node *stack)
+int	ft_stack_len(t_stack_node *stack)
 {
 	int	out;
 
@@ -27,7 +27,7 @@ int	ft_stack_len(t_node *stack)
 	return (out);
 }
 
-t_node	*ft_find_last(t_node *stack)
+t_stack_node	*ft_find_last(t_stack_node *stack)
 {
 	if (!stack)
 		return (NULL);
@@ -36,7 +36,7 @@ t_node	*ft_find_last(t_node *stack)
 	return (stack);
 }
 
-int	ft_stack_sorted(t_node *stack)
+int	ft_stack_sorted(t_stack_node *stack)
 {
 	if (!stack)
 		return (1);
@@ -49,9 +49,9 @@ int	ft_stack_sorted(t_node *stack)
 	return (1);
 }
 
-t_node	*ft_find_min(t_node *stack)
+t_stack_node	*ft_find_min(t_stack_node *stack)
 {
-	t_node	*min_node;
+	t_stack_node	*min_node;
 
 	if (!stack)
 		return (NULL);
@@ -65,9 +65,9 @@ t_node	*ft_find_min(t_node *stack)
 	return (min_node); 
 }
 
-t_node	*ft_find_max(t_node *stack)
+t_stack_node	*ft_find_max(t_stack_node *stack)
 {
-	t_node	*max_node;
+	t_stack_node	*max_node;
 
 	if (!stack)
 		return (NULL);

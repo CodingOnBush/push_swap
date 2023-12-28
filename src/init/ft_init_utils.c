@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 15:02:17 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/28 15:36:38 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/28 23:42:13 by allblue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ long	ft_atol(char *s)
 	return (result * sign);
 }
 
-void	ft_update_indexes(t_node *stack)
+void	ft_update_indexes(t_stack_node *stack)
 {
 	int	median;
 	int	i;

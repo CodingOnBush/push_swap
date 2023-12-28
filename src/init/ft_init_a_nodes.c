@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_a_nodes.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:10:51 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/28 15:36:58 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/28 23:40:27 by allblue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	ft_set_a_targets(t_node *a, t_node *b)
+static void	ft_set_a_targets(t_stack_node *a, t_stack_node *b)
 {
-	t_node	*curr_b;
-	t_node	*target_node;
+	t_stack_node	*curr_b;
+	t_stack_node	*target_node;
 	long	best_match;
 
 	target_node = NULL;
@@ -41,9 +41,9 @@ static void	ft_set_a_targets(t_node *a, t_node *b)
 	}
 }
 
-static void	ft_set_push_cost(t_node *a, t_node *b)
+static void	ft_set_push_cost(t_stack_node *a, t_stack_node *b)
 {
-	t_node	*curr_target;
+	t_stack_node	*curr_target;
 	int	alen;
 	int	blen;
 
@@ -63,10 +63,10 @@ static void	ft_set_push_cost(t_node *a, t_node *b)
 	}
 }
 
-static void	ft_set_cheapest(t_node *stack)
+static void	ft_set_cheapest(t_stack_node *stack)
 {
 	long	cheapest;
-	t_node	*cheapest_node;
+	t_stack_node	*cheapest_node;
 
 	if (!stack)
 		return ;
@@ -83,7 +83,7 @@ static void	ft_set_cheapest(t_node *stack)
 	cheapest_node->cheapest = 1;
 }
 
-void	ft_init_a_nodes(t_node *a, t_node *b)
+void	ft_init_a_nodes(t_stack_node *a, t_stack_node *b)
 {
 	ft_update_indexes(a);
 	ft_update_indexes(b);
