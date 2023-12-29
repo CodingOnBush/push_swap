@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/29 14:31:58 by momrane           #+#    #+#             */
+/*   Updated: 2023/12/29 14:34:01 by momrane          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/get_next_line.h"
 
 void	ft_update_lst(t_node **lst)
@@ -81,11 +93,11 @@ char	*ft_create_str(t_node *lst)
 	{
 		str = current->str;
 		while (*str != '\n' && *str)
-			*new++ = *str++;
+			*new ++ = *str++;
 		current = current->next;
 	}
 	if (*str == '\n')
-		*new++ = *str++;
+		*new ++ = *str++;
 	*new = '\0';
 	return (new - len);
 }
@@ -107,24 +119,3 @@ char	*get_next_line(int fd)
 	ft_update_lst(&lst);
 	return (line);
 }
-
-// #include <stdio.h>
-
-// int	main(void)
-// {
-// 	char	*line;
-// 	int		fd;
-
-// 	line = NULL;
-// 	fd = open("file", O_RDONLY);
-// 	while ((line = get_next_line(fd)))
-// 	{
-// 		printf("%s", line);
-// 		free(line);
-// 	}
-// 	free(line);
-// 	close(fd);
-// 	return (0);
-// 	// gcc -Wall -Werror -Wextra *.c -g3 -D BUFFER_SIZE=5
-// 	// valgrind -s --track-origins=yes --leak-check=full ./a.out
-// }

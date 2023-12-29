@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 13:55:50 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/29 13:42:12 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/29 14:27:09 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_print_error(void)
 {
-	ft_putstr_fd("€rror\n", 1);
+	ft_putstr_fd("Error\n", 1);
+	exit(1);
 }

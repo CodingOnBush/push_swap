@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 13:41:43 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/17 13:51:38 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/29 15:40:02 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ static int	ft_count_words(const char *str, char sep)
 
 static int	ft_get_wlen(const char *str, char sep)
 {
-	if (!ft_strchr(str, sep))
+	if (!ft_strchr((char *)str, sep))
 		return (ft_strlen(str));
 	else
-		return (ft_strchr(str, sep) - str);
+		return (ft_strchr((char *)str, sep) - str);
 }
 
 char	**ft_split(char const *s, char c)

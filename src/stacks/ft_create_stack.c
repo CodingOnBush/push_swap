@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 13:23:00 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/29 14:10:02 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/29 15:23:00 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ t_stack_node	*ft_create_stack(int ac, char **av)
 	char			*str;
 
 	out = NULL;
+	av++;
 	while (ac-- > 1)
 	{
-		av++;
 		str = *av;
 		while (*str != '\0')
 		{
@@ -68,6 +68,7 @@ t_stack_node	*ft_create_stack(int ac, char **av)
 			else
 				str++;
 		}
+		av++;
 	}
 	return (out);
 }

@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 13:22:04 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/29 13:22:08 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/29 14:43:59 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ static void	ft_set_b_target(t_stack_node *a, t_stack_node *b)
 }
 
 void	ft_init_b_nodes(t_stack_node *a, t_stack_node *b)
-		// Define a function that prepares the nodes for pushing `b` to `a`
 {
 	ft_update_indexes(a);
 	ft_update_indexes(b);

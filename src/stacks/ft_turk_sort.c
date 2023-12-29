@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 13:23:28 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/29 13:23:29 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/29 15:06:43 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,28 +30,6 @@ static void	rev_rotate_both(t_stack_node **a, t_stack_node **b,
 	ft_update_indexes(*b);
 }
 
-void	ft_prep_a_for_push(t_stack_node **a, t_stack_node *top_node)
-{
-	while (*a != top_node)
-	{
-		if (top_node->above_median)
-			ft_ra(a);
-		else
-			ft_rra(a);
-	}
-}
-
-void	ft_prep_b_for_push(t_stack_node **b, t_stack_node *top_node)
-{
-	while (*b != top_node)
-	{
-		if (top_node->above_median)
-			ft_rb(b);
-		else
-			ft_rrb(b);
-	}
-}
-
 static void	ft_move_a_to_b(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node	*cheapest_node;
@@ -63,32 +41,15 @@ static void	ft_move_a_to_b(t_stack_node **a, t_stack_node **b)
 		rotate_both(a, b, cheapest_node);
 	else if (cheapest_node->above_median == 0 && curr_target->above_median == 0)
 		rev_rotate_both(a, b, cheapest_node);
-	// ft_push_node_on_top(a, cheapest_node, 'a');
-	ft_prep_a_for_push(a, cheapest_node);
-	// ft_push_node_on_top(b, curr_target, 'b');
-	ft_prep_b_for_push(b, curr_target);
+	ft_prep_node_for_push(a, b, cheapest_node, 'a');
+	ft_prep_node_for_push(a, b, curr_target, 'b');
 	ft_pb(a, b);
 }
 
 static void	ft_move_b_to_a(t_stack_node **a, t_stack_node **b)
 {
-	// ft_push_node_on_top(a, (*b)->target_node, 'a');
-	ft_prep_a_for_push(a, (*b)->target_node);
+	ft_prep_node_for_push(a, b, (*b)->target_node, 'a');
 	ft_pa(a, b);
-}
-
-static void	ft_min_on_top(t_stack_node **a)
-		// Define a function that moves the smallest number to the top
-{
-	while ((*a)->nbr != ft_find_min(*a)->nbr)
-		// As long as the smallest number is not at the top
-	{
-		if (ft_find_min(*a)->above_median)
-			// Rotate or reverse rotate according to the position of the node on the median
-			ft_ra(a);
-		else
-			ft_rra(a);
-	}
 }
 
 void	ft_turk_sort(t_stack_node **a, t_stack_node **b)

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   instructions.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/29 14:32:05 by momrane           #+#    #+#             */
+/*   Updated: 2023/12/29 15:23:46 by momrane          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/push_swap.h"
 
 static void	ft_apply_rotate(t_stack_node **a, t_stack_node **b, char *order)
@@ -13,7 +25,8 @@ static void	ft_apply_rotate(t_stack_node **a, t_stack_node **b, char *order)
 	}
 }
 
-static void	ft_apply_reverse_rotate(t_stack_node **a, t_stack_node **b, char *order)
+static void	ft_apply_reverse_rotate(t_stack_node **a, t_stack_node **b,
+		char *order)
 {
 	if (ft_strncmp(order, "rra", 3) == 0)
 		ft_rev_rotate(a);
@@ -49,11 +62,6 @@ static void	ft_apply_push(t_stack_node **a, t_stack_node **b, char *order)
 
 void	ft_apply_order(t_stack_node **a, t_stack_node **b, char *order)
 {
-	if (ft_strncmp(order, "Error", 5) == 0)
-	{
-		ft_putstr_fd("CHECKER\n", 1);
-		ft_print_error();
-	}
 	if (ft_strncmp(order, "s", 1) == 0)
 		ft_apply_swap(a, b, order);
 	else if (ft_strncmp(order, "p", 1) == 0)

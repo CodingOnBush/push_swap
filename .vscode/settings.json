@@ -7,7 +7,10 @@
 		"limits.h": "c",
 		"libft.h": "c",
 		"cstdlib": "c",
-		"get_next_line.h": "c"
+		"get_next_line.h": "c",
+		"random": "c",
+		"sstream": "c",
+		"regex": "c"
 	},
 	"[c]": {
         "editor.defaultFormatter": "keyhr.42-c-format"

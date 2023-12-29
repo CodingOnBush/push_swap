@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 13:23:18 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/29 13:23:20 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/29 14:59:33 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,41 @@ void	ft_push_node_on_top(t_stack_node **stack, t_stack_node *top_node,
 			else
 				ft_rrb(stack);
 		}
+	}
+}
+
+void	ft_prep_node_for_push(t_stack_node **a, t_stack_node **b,
+		t_stack_node *n, char node)
+{
+	if (node == 'a')
+	{
+		while (*a != n)
+		{
+			if (n->above_median)
+				ft_ra(a);
+			else
+				ft_rra(a);
+		}
+	}
+	else if (node == 'b')
+	{
+		while (*b != n)
+		{
+			if (n->above_median)
+				ft_rb(b);
+			else
+				ft_rrb(b);
+		}
+	}
+}
+
+void	ft_min_on_top(t_stack_node **a)
+{
+	while ((*a)->nbr != ft_find_min(*a)->nbr)
+	{
+		if (ft_find_min(*a)->above_median)
+			ft_ra(a);
+		else
+			ft_rra(a);
 	}
 }
