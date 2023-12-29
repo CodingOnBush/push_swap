@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 13:46:42 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/29 14:13:05 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/29 18:53:06 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,6 @@ int	ft_check_args(int ac, char **av)
 	char	*str;
 	int		numbers_found;
 
-	if (ac < 2)
-		return (0);
 	numbers_found = 0;
 	while (ac-- > 1)
 	{
@@ -71,5 +69,6 @@ int	ft_check_args(int ac, char **av)
 				str++;
 		}
 	}
+	printf("numbers_found: %d\n", numbers_found);
 	return (numbers_found);
 }

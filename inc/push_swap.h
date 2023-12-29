@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:53:30 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/29 15:27:40 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/29 16:07:19 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void					ft_apply_order(t_stack_node **a, t_stack_node **b,
 							char *order);
 // errors/
 int						ft_args_error(void);
-void					ft_checker_error(t_stack_node **a, t_stack_node **b);
+int						ft_checker_error(t_stack_node **a, t_stack_node **b);
 int						ft_create_stack_error(void);
 int						ft_duplicate_error(t_stack_node **head);
 void					*ft_new_node_error(t_stack_node **head);

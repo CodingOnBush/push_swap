@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 14:31:58 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/29 14:34:01 by momrane          ###   ########.fr       */
+/*   Created: 2023/12/04 07:52:08 by momrane           #+#    #+#             */
+/*   Updated: 2023/12/29 15:52:13 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/get_next_line.h"
+#include "get_next_line.h"
 
 void	ft_update_lst(t_node **lst)
 {
@@ -93,11 +93,11 @@ char	*ft_create_str(t_node *lst)
 	{
 		str = current->str;
 		while (*str != '\n' && *str)
-			*new ++ = *str++;
+			*new++ = *str++;
 		current = current->next;
 	}
 	if (*str == '\n')
-		*new ++ = *str++;
+		*new++ = *str++;
 	*new = '\0';
 	return (new - len);
 }

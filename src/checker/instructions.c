@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 14:32:05 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/29 15:23:46 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/29 18:07:34 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,22 +66,24 @@ void	ft_apply_order(t_stack_node **a, t_stack_node **b, char *order)
 		ft_apply_swap(a, b, order);
 	else if (ft_strncmp(order, "p", 1) == 0)
 		ft_apply_push(a, b, order);
-	else if (ft_strncmp(order, "rra", 3) == 0)
+	else if (ft_strncmp(order, "rra\n", 4) == 0)
 		ft_rev_rotate(a);
-	else if (ft_strncmp(order, "rrb", 3) == 0)
+	else if (ft_strncmp(order, "rrb\n", 4) == 0)
 		ft_rev_rotate(b);
-	else if (ft_strncmp(order, "rrr", 3) == 0)
+	else if (ft_strncmp(order, "rrr\n", 4) == 0)
 	{
 		ft_rev_rotate(a);
 		ft_rev_rotate(b);
 	}
-	else if (ft_strncmp(order, "ra", 2) == 0)
+	else if (ft_strncmp(order, "ra\n", 3) == 0)
 		ft_rotate(a);
-	else if (ft_strncmp(order, "rb", 2) == 0)
+	else if (ft_strncmp(order, "rb\n", 3) == 0)
 		ft_rotate(b);
-	else if (ft_strncmp(order, "rr", 2) == 0)
+	else if (ft_strncmp(order, "rr\n", 3) == 0)
 	{
 		ft_rotate(a);
 		ft_rotate(b);
 	}
+	else if (ft_strncmp(order, "Error\n", 6) == 0)
+		ft_checker_error(a, b);
 }

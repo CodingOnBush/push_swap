@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 14:31:54 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/29 14:33:53 by momrane          ###   ########.fr       */
+/*   Created: 2023/12/04 07:56:42 by momrane           #+#    #+#             */
+/*   Updated: 2023/12/04 08:19:30 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/get_next_line.h"
+#include "get_next_line.h"
 
 char	*ft_get_after_nl(char *str)
 {
@@ -97,5 +97,23 @@ int	ft_lstchr(t_node *lst)
 			return (1);
 		curr = curr->next;
 	}
+	return (0);
+}
+
+char	*ft_strchr(char *s, char c)
+{
+	char			*ptr;
+
+	if (!s)
+		return (NULL);
+	ptr = (char *)s;
+	while (*ptr)
+	{
+		if (*ptr == c)
+			return (ptr);
+		ptr++;
+	}
+	if (*ptr == c)
+		return (ptr);
 	return (0);
 }
