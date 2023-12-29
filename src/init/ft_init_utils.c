@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 15:02:17 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/28 23:42:13 by allblue          ###   ########.fr       */
+/*   Updated: 2023/12/29 13:22:26 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isnumber(char *s)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	if (ft_issign(s[i]))
@@ -57,7 +57,7 @@ long	ft_atol(char *s)
 	int		sign;
 
 	result = 0;
-	sign = 1; 
+	sign = 1;
 	while (ft_isspace(*s))
 		s++;
 	if (ft_issign(*s))

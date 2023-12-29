@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 22:48:20 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/29 13:12:10 by momrane          ###   ########.fr       */
+/*   Created: 2023/12/29 13:23:00 by momrane           #+#    #+#             */
+/*   Updated: 2023/12/29 14:10:02 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	ft_add_node(t_stack_node **head, t_stack_node *new_node)
 	t_stack_node	*last_node;
 
 	if (!new_node)
-		ft_new_node_error(*head);
+		return ;
 	if (*head == NULL)
 	{
 		*head = new_node;
@@ -47,8 +47,8 @@ static void	ft_add_node(t_stack_node **head, t_stack_node *new_node)
 t_stack_node	*ft_create_stack(int ac, char **av)
 {
 	t_stack_node	*out;
+	t_stack_node	*new;
 	char			*str;
-	long			nb;
 
 	out = NULL;
 	while (ac-- > 1)
@@ -59,14 +59,15 @@ t_stack_node	*ft_create_stack(int ac, char **av)
 		{
 			if ((ft_isdigit(*str) || ft_issign(*str)))
 			{
-				nb = ft_atol(str);
-				ft_add_node(&out, ft_new_node(nb));
+				new = ft_new_node(ft_atol(str));
+				if (!new)
+					return (ft_new_node_error(&out));
+				ft_add_node(&out, new);
 				str += ft_isnumber(str);
 			}
 			else
 				str++;
 		}
 	}
-	ft_check_duplicates(out);
 	return (out);
 }

@@ -5,7 +5,15 @@ static void	ft_print_ok(t_stack_node **a, t_stack_node **b)
 	ft_free_stack(a);
 	ft_free_stack(b);
 	ft_putstr_fd("OK\n", 1);
-	exit(0);
+	exit(1);
+}
+
+static void	ft_print_ko(t_stack_node **a, t_stack_node **b)
+{
+	ft_free_stack(a);
+	ft_free_stack(b);
+	ft_putstr_fd("KO\n", 1);
+	exit(1);
 }
 
 static void	ft_print_node(t_stack_node **stack)
@@ -58,7 +66,7 @@ int	main(int ac, char **av)
 	if (ft_stack_sorted(a))
 		ft_print_ok(&a, &b);
 	else
-		ft_putstr_fd("KO\n", 1);
+		ft_print_ko(&a, &b);
 	free(line);
 	return (0);
 }

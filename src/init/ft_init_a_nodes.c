@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_a_nodes.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 21:10:51 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/28 23:40:27 by allblue          ###   ########.fr       */
+/*   Created: 2023/12/29 13:21:55 by momrane           #+#    #+#             */
+/*   Updated: 2023/12/29 13:21:56 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_set_a_targets(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*curr_b;
 	t_stack_node	*target_node;
-	long	best_match;
+	long			best_match;
 
 	target_node = NULL;
 	curr_b = NULL;
@@ -44,8 +44,8 @@ static void	ft_set_a_targets(t_stack_node *a, t_stack_node *b)
 static void	ft_set_push_cost(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*curr_target;
-	int	alen;
-	int	blen;
+	int				alen;
+	int				blen;
 
 	alen = ft_stack_len(a);
 	blen = ft_stack_len(b);
@@ -65,7 +65,7 @@ static void	ft_set_push_cost(t_stack_node *a, t_stack_node *b)
 
 static void	ft_set_cheapest(t_stack_node *stack)
 {
-	long	cheapest;
+	long			cheapest;
 	t_stack_node	*cheapest_node;
 
 	if (!stack)

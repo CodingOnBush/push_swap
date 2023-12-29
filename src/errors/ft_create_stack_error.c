@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_create_stack_error.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/29 13:24:20 by momrane           #+#    #+#             */
+/*   Updated: 2023/12/29 13:43:37 by momrane          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-void	ft_create_stack_error()
+int	ft_create_stack_error(void)
 {
 	ft_print_error();
-	exit(1);
+	return (0);
 }

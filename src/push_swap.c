@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 14:06:54 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/29 13:07:39 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/29 14:12:03 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,13 @@ int	main(int ac, char **av)
 	t_stack_node	*b;
 
 	if (!ft_check_args(ac, av))
-		ft_args_error();
+		return (ft_args_error());
 	b = NULL;
 	a = ft_create_stack(ac, av);
 	if (!a)
-		ft_args_error();
+		return (ft_args_error());
+	if (ft_check_duplicates(&a) == 0)
+		return (ft_duplicate_error(&a));
 	// ft_print_stacks(a, b);
 	if (!ft_stack_sorted(a))
 		ft_turk_sort(&a, &b);

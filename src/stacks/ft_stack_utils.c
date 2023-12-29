@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 14:00:55 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/28 23:43:54 by allblue          ###   ########.fr       */
+/*   Updated: 2023/12/29 13:19:44 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_stack_node	*ft_find_min(t_stack_node *stack)
 			min_node = stack;
 		stack = stack->next;
 	}
-	return (min_node); 
+	return (min_node);
 }
 
 t_stack_node	*ft_find_max(t_stack_node *stack)

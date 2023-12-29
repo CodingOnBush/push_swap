@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_b_nodes.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 21:10:54 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/28 23:41:40 by allblue          ###   ########.fr       */
+/*   Created: 2023/12/29 13:22:04 by momrane           #+#    #+#             */
+/*   Updated: 2023/12/29 13:22:08 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_set_b_target(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*curr_a;
 	t_stack_node	*target_node;
-	long	best_match;
+	long			best_match;
 
 	while (b)
 	{
@@ -39,7 +39,8 @@ static void	ft_set_b_target(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-void	ft_init_b_nodes(t_stack_node *a, t_stack_node *b) //Define a function that prepares the nodes for pushing `b` to `a`
+void	ft_init_b_nodes(t_stack_node *a, t_stack_node *b)
+		// Define a function that prepares the nodes for pushing `b` to `a`
 {
 	ft_update_indexes(a);
 	ft_update_indexes(b);

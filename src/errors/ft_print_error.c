@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_error.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 13:55:50 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/28 23:13:53 by allblue          ###   ########.fr       */
+/*   Updated: 2023/12/29 13:42:12 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-void	ft_print_error()
+void	ft_print_error(void)
 {
-	ft_putstr_fd("Error\n", 1);
+	ft_putstr_fd("€rror\n", 1);
 }

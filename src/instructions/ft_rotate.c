@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:45:10 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/28 23:43:02 by allblue          ###   ########.fr       */
+/*   Updated: 2023/12/29 13:22:44 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void	ft_rotate(t_stack_node **stack)
 {
-	t_stack_node	*last_node; //To store a pointer to the last node of a stack
+	t_stack_node	*last_node;
 
-	if (!*stack || !(*stack)->next) //Check if the stack is empty, or if there's one node
+	if (!*stack || !(*stack)->next)
 		return ;
-	last_node = ft_find_last(*stack); 
-	last_node->next = *stack; //Assign to the last node, its `next` attribute as the top node, effectively setting the current top node as the last node
-	*stack = (*stack)->next; //Assign to the pointer of the top node, the node after it (second from the top)
-	(*stack)->prev = NULL; //Complete setting the current top node by detaching it from its previous top node
-	last_node->next->prev = last_node; //Reconnect the second node's prev pointer to point to what was previously the last node in the stack
-	last_node->next->next = NULL; //Assign to the `next` attribute of the current last node, `NULL` effectively setting it as the current last node, and properly null terminating the stack
-}		
+	last_node = ft_find_last(*stack);
+	last_node->next = *stack;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	last_node->next->prev = last_node;
+	last_node->next->next = NULL;
+}
 
 void	ft_ra(t_stack_node **a)
 {

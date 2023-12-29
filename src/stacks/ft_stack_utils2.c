@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack_utils2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 21:11:21 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/28 23:44:08 by allblue          ###   ########.fr       */
+/*   Created: 2023/12/29 13:23:18 by momrane           #+#    #+#             */
+/*   Updated: 2023/12/29 13:23:20 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void	ft_free_stack(t_stack_node **stack)
 	*stack = NULL;
 }
 
-void	ft_push_node_on_top(t_stack_node **stack, t_stack_node *top_node, char stack_name)
+void	ft_push_node_on_top(t_stack_node **stack, t_stack_node *top_node,
+		char stack_name)
 {
 	while (*stack != top_node)
 	{

@@ -6,7 +6,7 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 13:46:42 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/29 13:15:23 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/29 14:13:05 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,24 @@ static int	ft_isvalid_nb(char *s)
 	return (1);
 }
 
-void	ft_check_duplicates(t_stack_node *head)
+int	ft_check_duplicates(t_stack_node **head)
 {
 	t_stack_node	*current;
 	t_stack_node	*temp;
 
-	current = head;
+	current = *head;
 	while (current->next != NULL)
 	{
 		temp = current->next;
 		while (temp)
 		{
 			if (current->nbr == temp->nbr)
-				ft_duplicate_error(head);
+				return (0);
 			temp = temp->next;
 		}
 		current = current->next;
 	}
+	return (1);
 }
 
 int	ft_check_args(int ac, char **av)

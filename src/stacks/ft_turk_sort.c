@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_turk_sort.c                                      :+:      :+:    :+:   */
+/*   ft_turk_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 21:11:08 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/26 13:34:07 by momrane          ###   ########.fr       */
+/*   Created: 2023/12/29 13:23:28 by momrane           #+#    #+#             */
+/*   Updated: 2023/12/29 13:23:29 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
+static void	rotate_both(t_stack_node **a, t_stack_node **b,
+		t_stack_node *cheapest_node)
 {
 	while (*a != cheapest_node && *b != cheapest_node->target_node)
 		ft_rr(a, b);
@@ -20,7 +21,8 @@ static void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheape
 	ft_update_indexes(*b);
 }
 
-static void	rev_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
+static void	rev_rotate_both(t_stack_node **a, t_stack_node **b,
+		t_stack_node *cheapest_node)
 {
 	while (*a != cheapest_node && *b != cheapest_node->target_node)
 		ft_rrr(a, b);
@@ -64,23 +66,25 @@ static void	ft_move_a_to_b(t_stack_node **a, t_stack_node **b)
 	// ft_push_node_on_top(a, cheapest_node, 'a');
 	ft_prep_a_for_push(a, cheapest_node);
 	// ft_push_node_on_top(b, curr_target, 'b');
-	ft_prep_b_for_push(b, curr_target);	
+	ft_prep_b_for_push(b, curr_target);
 	ft_pb(a, b);
 }
-
 
 static void	ft_move_b_to_a(t_stack_node **a, t_stack_node **b)
 {
 	// ft_push_node_on_top(a, (*b)->target_node, 'a');
 	ft_prep_a_for_push(a, (*b)->target_node);
-	ft_pa(a, b); 
+	ft_pa(a, b);
 }
 
-static void	ft_min_on_top(t_stack_node **a) //Define a function that moves the smallest number to the top
+static void	ft_min_on_top(t_stack_node **a)
+		// Define a function that moves the smallest number to the top
 {
-	while ((*a)->nbr != ft_find_min(*a)->nbr) //As long as the smallest number is not at the top
+	while ((*a)->nbr != ft_find_min(*a)->nbr)
+		// As long as the smallest number is not at the top
 	{
-		if (ft_find_min(*a)->above_median) //Rotate or reverse rotate according to the position of the node on the median
+		if (ft_find_min(*a)->above_median)
+			// Rotate or reverse rotate according to the position of the node on the median
 			ft_ra(a);
 		else
 			ft_rra(a);
