@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 13:46:42 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/28 23:39:52 by allblue          ###   ########.fr       */
+/*   Updated: 2023/12/29 13:15:23 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,24 +47,28 @@ void	ft_check_duplicates(t_stack_node *head)
 
 int	ft_check_args(int ac, char **av)
 {
-	int		i;
+	char	*str;
+	int		numbers_found;
 
 	if (ac < 2)
 		return (0);
+	numbers_found = 0;
 	while (ac-- > 1)
 	{
-		i = 0;
-		while (av[ac][i] != '\0')
+		av++;
+		str = *av;
+		while (*str != 0)
 		{
-			if (!ft_isspace(av[ac][i]))
+			numbers_found = 1;
+			if (!ft_isspace(*str))
 			{
-				if (!ft_isvalid_nb(&av[ac][i]))
+				if (!ft_isvalid_nb(str))
 					return (0);
-				i += ft_isnumber(&av[ac][i]);
+				str += ft_isnumber(str);
 			}
 			else
-				i++;
+				str++;
 		}
 	}
-	return (1);
+	return (numbers_found);
 }

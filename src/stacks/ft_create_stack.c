@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_create_stack.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 22:48:20 by allblue           #+#    #+#             */
-/*   Updated: 2023/12/28 23:43:31 by allblue          ###   ########.fr       */
+/*   Updated: 2023/12/29 13:12:10 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,27 +47,25 @@ static void	ft_add_node(t_stack_node **head, t_stack_node *new_node)
 t_stack_node	*ft_create_stack(int ac, char **av)
 {
 	t_stack_node	*out;
-	long	nb;
-	int		i;
-	int		j;
+	char			*str;
+	long			nb;
 
 	out = NULL;
-	i = 1;
-	while (i < ac)
+	while (ac-- > 1)
 	{
-		j = 0;
-		while (av[i][j] != '\0')
+		av++;
+		str = *av;
+		while (*str != '\0')
 		{
-			if ((ft_isdigit(av[i][j]) || ft_issign(av[i][j])))
+			if ((ft_isdigit(*str) || ft_issign(*str)))
 			{
-				nb = ft_atol(&av[i][j]);
+				nb = ft_atol(str);
 				ft_add_node(&out, ft_new_node(nb));
-				j += ft_isnumber(&av[i][j]);
+				str += ft_isnumber(str);
 			}
 			else
-				j++;
+				str++;
 		}
-		i++;
 	}
 	ft_check_duplicates(out);
 	return (out);
