@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_little_sort.c                                   :+:      :+:    :+:   */
+/*   ft_checker_error_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 13:23:06 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/29 13:23:08 by momrane          ###   ########.fr       */
+/*   Created: 2023/12/30 15:01:43 by momrane           #+#    #+#             */
+/*   Updated: 2023/12/30 15:01:45 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
-void	ft_little_sort(t_stack_node **a)
+void	ft_checker_error(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node	*biggest;
-
-	if (ft_stack_len(*a) == 2)
-		ft_sa(a);
-	else
-	{
-		biggest = ft_find_max(*a);
-		if (*a == biggest)
-			ft_ra(a);
-		else if ((*a)->next == biggest)
-			ft_rra(a);
-		if ((*a)->nbr > (*a)->next->nbr)
-			ft_sa(a);
-	}
+	ft_free_stack(a);
+	ft_free_stack(b);
+	ft_putstr_fd("Error\n", 2);
+	exit(0);
 }

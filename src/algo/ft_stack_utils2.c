@@ -6,11 +6,11 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 13:23:18 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/29 14:59:33 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/30 15:13:31 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 t_stack_node	*ft_get_cheapest_node(t_stack_node *stack)
 {

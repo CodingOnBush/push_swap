@@ -6,11 +6,11 @@
 /*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 13:23:28 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/29 15:06:43 by momrane          ###   ########.fr       */
+/*   Updated: 2023/12/30 15:13:35 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 static void	rotate_both(t_stack_node **a, t_stack_node **b,
 		t_stack_node *cheapest_node)

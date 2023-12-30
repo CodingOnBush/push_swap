@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 14:00:55 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/30 13:07:49 by allblue          ###   ########.fr       */
+/*   Updated: 2023/12/30 15:13:28 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 int	ft_stack_len(t_stack_node *stack)
 {

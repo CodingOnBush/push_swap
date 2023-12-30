@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:53:30 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/30 12:59:00 by allblue          ###   ########.fr       */
+/*   Updated: 2023/12/30 14:49:20 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "../libft/libft.h"
-# include "./get_next_line.h"
+# include "./get_next_line_bonus.h"
 # include <stdio.h>
 
 typedef struct s_stack_node

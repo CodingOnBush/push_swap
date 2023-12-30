@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions.c                                     :+:      :+:    :+:   */
+/*   instructions_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allblue <allblue@student.42.fr>            +#+  +:+       +#+        */
+/*   By: momrane <momrane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 14:32:05 by momrane           #+#    #+#             */
-/*   Updated: 2023/12/30 13:18:19 by allblue          ###   ########.fr       */
+/*   Updated: 2023/12/30 14:53:53 by momrane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ static void	ft_apply_swap(t_stack_node **a, t_stack_node **b, char *order)
 		ft_swap(a);
 		ft_swap(b);
 	}
+	else
+		ft_checker_error(a, b);
 }
 
 static void	ft_apply_push(t_stack_node **a, t_stack_node **b, char *order)
@@ -86,5 +88,6 @@ void	ft_apply_order(t_stack_node **a, t_stack_node **b, char *order)
 		ft_rotate(a);
 		ft_rotate(b);
 	}
+	else
 		ft_checker_error(a, b);
 }
